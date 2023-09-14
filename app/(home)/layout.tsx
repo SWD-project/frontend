@@ -8,7 +8,14 @@ export default async function StoreLayout({ children }: { children: React.ReactN
       <div className='section-after-sticky'>
         <Navbar elevation={0} border={1} />
       </div>
-      {children}
+      <div
+        style={{
+          maxWidth: 1376,
+          margin: 'auto'
+        }}
+      >
+        {children}
+      </div>
     </>
   )
 }
