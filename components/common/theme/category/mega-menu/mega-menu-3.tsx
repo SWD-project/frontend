@@ -8,7 +8,6 @@ import Card from '@components/common/theme/card';
 import LazyImage from '@components/common/theme/lazy-image';
 import NavLink from '@components/common/theme/nav-link/nav-link';
 import { H3, Small } from '@components/common/theme/typography';
-import { useTranslations } from 'next-intl';
 import FlexBox from '../../flex-box/flex-box';
 
 // ====================================================================================
@@ -20,7 +19,6 @@ type MegaMenuProps = { data: MegaMenu; minWidth?: string };
 // ====================================================================================
 
 const MegaMenu3 = ({ data: { categories, rightImage }, minWidth = '760px' }: MegaMenuProps) => {
-  const t = useTranslations("index")
   return categories ? (
     <StyledMegaMenu>
       <Card sx={{ ml: '1rem', minWidth }} elevation={2}>
@@ -64,14 +62,14 @@ const MegaMenu3 = ({ data: { categories, rightImage }, minWidth = '760px' }: Meg
           <Grid className="h-full" container spacing={0} wrap="wrap-reverse" alignItems="center">
             <Grid item sm={6} xs={12}>
               <Box px={2.5}>
-                <H3 mb={1}>{t("Big Sale Upto 60% Off")}</H3>
+                <H3 mb={1}>Big Sale Upto 60% Off"</H3>
 
                 <Box color="grey.600" mb={1}>
-                  {t("Handcrafted from genuine Italian Leather")}
+                  Handcrafted from genuine Italian Leather
                 </Box>
 
                 <Small fontWeight="700" borderBottom="2px solid" borderColor="primary.main">
-                  {t("SHOP NOW")}
+                  SHOP NOW
                 </Small>
               </Box>
             </Grid>

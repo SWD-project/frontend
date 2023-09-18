@@ -1,5 +1,5 @@
-import { createTheme, responsiveFontSizes } from '@mui/material';
-import { themeOptions } from 'config/theme-options';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles'
+import { themeOptions } from 'config/theme-options'
 
 let theme = createTheme(themeOptions)
 theme = responsiveFontSizes(theme)
