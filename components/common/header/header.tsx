@@ -15,11 +15,12 @@ import Drawer from '@mui/material/Drawer'
 import IconButton from '@mui/material/IconButton'
 import { styled, useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import FlexBetween from '../theme/flex-box/flex-between'
-import FlexBox from '../theme/flex-box/flex-box'
-import Search from '../theme/icons/search'
-import CategoryMenu from '../theme/category/category-menu'
-import Category from '../theme/icons/category'
+import CategoryMenu from '@components/common/theme/category/category-menu'
+import FlexBetween from '@components/common/theme/flex-box/flex-between'
+import FlexBox from '@components/common/theme/flex-box/flex-box'
+import Category from '@components/common/theme/icons/category'
+import Search from '@mui/icons-material/Search'
+
 
 export const layoutConstant = {
   topbarHeight: 40,

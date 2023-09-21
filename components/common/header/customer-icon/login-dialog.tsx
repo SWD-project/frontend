@@ -1,5 +1,5 @@
 'use client'
-import Login from '@components/auth/login'
+import Login from 'app/(home)/_components/auth/login'
 import User from '@components/common/theme/icons/user'
 import PersonOutline from '@mui/icons-material/PersonOutline'
 import Box from '@mui/material/Box'

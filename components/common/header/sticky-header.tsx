@@ -1,8 +1,8 @@
 "use client"
 import React, { ReactNode, useCallback, useState } from 'react'
-import Sticky from '../theme/sticky';
 import Header from './header';
-import SearchInputWithCategory from '../theme/search-box/search-input-with-category';
+import SearchInputWithCategory from '@components/common/theme/search-box/search-input-with-category';
+import Sticky from '@components/common/theme/sticky';
 
 const StickyHeader = ({children} : {
     children: ReactNode

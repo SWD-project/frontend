@@ -16,7 +16,6 @@ import TextField from '@components/common/theme/text-field'
 import { useLogin } from 'hook/use-login'
 import { usePathname, useRouter } from 'next/navigation'
 import EyeToggleButton from './eye-toggle-button'
-import ForgotPassword from './forgot-password'
 import SocialButtons from './social-buttons'
 import FlexRowCenter from '@components/common/theme/flex-box/flex-grow-center'
 import FlexBox from '@components/common/theme/flex-box/flex-box'
@@ -48,7 +47,6 @@ const Login = ({ onClose }: LoginProps) => {
   const [passwordVisibility, setPasswordVisibility] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const { enqueueSnackbar } = useSnackbar()
-  const [isLogin, setIsLogin] = useState<boolean>(true)
   const login = useLogin
   const router = useRouter()
   const pathName = usePathname()
@@ -84,7 +82,6 @@ const Login = ({ onClose }: LoginProps) => {
   })
   return (
     <Wrapper elevation={3} passwordVisibility={passwordVisibility}>
-      {isLogin ? (
         <form onSubmit={handleSubmit}>
           <Image src='/assets/images/logo-v2.png' alt='Fado168' sx={{ m: 'auto', height: '44px' }} />
 
@@ -143,35 +140,16 @@ const Login = ({ onClose }: LoginProps) => {
           </LoadingButton>
           <SocialButtons />
 
-          <FlexRowCenter mt='1.25rem'>
+          <FlexBox justifyContent='center' bgcolor='grey.200' borderRadius='4px' py={2.5} mt='1.25rem'>
             <Box>Dont have account?</Box>
             <Link href={`/sign-up?redirectTo=${pathName}`}>
               <H6 ml={1} borderBottom='1px solid' borderColor='grey.900'>
                 Sign Up
               </H6>
             </Link>
-          </FlexRowCenter>
-
-          <FlexBox justifyContent='center' bgcolor='grey.200' borderRadius='4px' py={2.5} mt='1.25rem'>
-            'Forgot your password?
-            <H6
-              ml={1}
-              borderBottom='1px solid'
-              borderColor='grey.900'
-              sx={{
-                cursor: 'pointer'
-              }}
-              onClick={() => {
-                setIsLogin(false)
-              }}
-            >
-              Reset it
-            </H6>
           </FlexBox>
         </form>
-      ) : (
-        <ForgotPassword setIsLogin={setIsLogin} />
-      )}
+      
     </Wrapper>
   )
 }

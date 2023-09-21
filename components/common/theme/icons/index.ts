@@ -1,5 +1,7 @@
 "use client"
-import { Search, Payment } from "@mui/icons-material"
+import Search from "@mui/icons-material/Search"
+import Payment from "@mui/icons-material/Payment"
+import StarBorder from '@mui/icons-material/StarBorder';
 import AlarmClock from "./alam-clock"
 import CartBag from "./cart-bag"
 import Category from "./category"
@@ -43,6 +45,7 @@ const appIcons = {
   DEFlag,
   JPFlag,
   UKFlag,
+  StarBorder
 }
 
 export default appIcons

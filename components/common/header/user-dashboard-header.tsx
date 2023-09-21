@@ -1,11 +1,11 @@
 "use client"
+import FlexBox from '@components/common/theme/flex-box/flex-box'
+import Sidenav from '@components/common/theme/sidenav'
+import { H2 } from '@components/common/theme/typography'
 import Menu from '@mui/icons-material/Menu'
 import Box from '@mui/material/Box'
 import { styled } from '@mui/material/styles'
-import { H2 } from '../theme/typography'
 import useWindowSize from 'hook/use-window-size'
-import FlexBox from '../theme/flex-box/flex-box'
-import Sidenav from '../theme/sidenav'
 
 
 const StyledBox = styled(Box)(({ theme }) => ({
