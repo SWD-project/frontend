@@ -22,7 +22,7 @@ type SidenavProps = {
 // ================================================================
 
 const Sidenav = (props: SidenavProps) => {
-  const { position, open, width = 280, handle, children, toggleSidenav } = props
+  const { position= 'left', open = false, width = 280, handle, children, toggleSidenav } = props
 
   const [sidenavOpen, setSidenavOpen] = useState(open)
   const handleToggleSidenav = () => setSidenavOpen(!sidenavOpen)
@@ -51,6 +51,4 @@ const Sidenav = (props: SidenavProps) => {
 }
 
 // set default component props
-Sidenav.defaultProps = { width: 280, position: 'left', open: false }
-
 export default Sidenav

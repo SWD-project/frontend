@@ -1,9 +1,8 @@
 "use client"
 import Card from '@components/common/theme/card';
-import { FlexBox } from '@components/common/theme/flex-box';
+import FlexBox from '@components/common/theme/flex-box/flex-box';
 import Image from '@components/common/theme/image';
 import { H2, Paragraph, Small } from '@components/common/theme/typography';
-import { ProductCard } from '@lib/fado/product/types';
 import { styled } from '@mui/material/styles';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
@@ -32,7 +31,7 @@ const StyledShopButton = styled(Small)(({ theme }) => ({
 }));
 
 // ==========================================================
-type Props = { product: ProductCard };
+type Props = { product: any };
 // ==========================================================
 
 const CarouselCard3 = ({ product }: Props) => {

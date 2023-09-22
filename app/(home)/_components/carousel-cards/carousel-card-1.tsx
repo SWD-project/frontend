@@ -3,9 +3,9 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
 
-import { FlexBetween } from '@components/common/theme/flex-box';
 import Image from '@components/common/theme/image';
 import { Paragraph } from '@components/common/theme/typography';
+import FlexBetween from '@components/common/theme/flex-box/flex-between';
 
 // styled component
 const StyledBox = styled(FlexBetween)(({ theme }) => ({

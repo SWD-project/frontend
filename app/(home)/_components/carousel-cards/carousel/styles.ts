@@ -1,5 +1,5 @@
 "use client"
-import { CSSObject, styled } from "@mui/material";
+import { CSSObject, styled } from "@mui/material/styles";
 import {
   ButtonBack,
   ButtonNext,

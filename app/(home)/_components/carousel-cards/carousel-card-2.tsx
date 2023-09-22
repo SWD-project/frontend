@@ -6,7 +6,6 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
-import { useTranslations } from 'next-intl';
 
 // styled component
 const ContentWrapper = styled(Box)(({ theme }) => ({
@@ -27,7 +26,6 @@ type CarouselCard2Props = {
 // ================================================================
 
 const CarouselCard2 = ({ imgUrl, productName }: CarouselCard2Props) => {
-  const t = useTranslations("index")
   return (
     <Grid container alignItems="center">
       <Grid item lg={6} md={5} sm={12} xs={12}>
@@ -40,7 +38,7 @@ const CarouselCard2 = ({ imgUrl, productName }: CarouselCard2Props) => {
       <Grid item lg={4} md={5} sm={12} xs={12}>
         <ContentWrapper>
           <H3 color="primary.500" mb="0.2rem">
-            {t("Deal Of The Day")}
+            Deal Of The Day
           </H3>
           <H2>{productName}</H2>
 
@@ -50,7 +48,7 @@ const CarouselCard2 = ({ imgUrl, productName }: CarouselCard2Props) => {
           </Paragraph>
 
           <H4 mt="1.5rem" mb="0.3rem">
-            {t("Fresh Deal Everyday, Get It Now")}!
+            Fresh Deal Everyday, Get It Now!
           </H4>
 
           {/* countdown time */}
@@ -69,7 +67,7 @@ const CarouselCard2 = ({ imgUrl, productName }: CarouselCard2Props) => {
                 mr: '1rem'
               }}
             >
-              {t("BUY NOW")}
+              BUY NOW
             </Button>
 
             <Button
