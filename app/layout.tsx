@@ -9,9 +9,9 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     <html>
       <body>
         <ThemeRegistry options={{ key: 'mui' }}>
-          <SnackbarProvider>
-            <TanQueryProvider>{children}</TanQueryProvider>
-          </SnackbarProvider>
+            <SnackbarProvider>
+              <TanQueryProvider>{children}</TanQueryProvider>
+            </SnackbarProvider>
         </ThemeRegistry>
       </body>
     </html>

@@ -2,7 +2,6 @@ import FlexRowCenter from "@components/common/theme/flex-box/flex-grow-center";
 import { H6 } from "@components/common/theme/typography";
 import { Box } from "@mui/material";
 import Register from "app/(home)/_components/auth/register";
-import SocialButtons from "app/(home)/_components/auth/social-buttons";
 import Link from "next/link";
 
 
@@ -24,7 +23,6 @@ export default async function SignUp() {
   return (
     <FlexRowCenter flexDirection="column" minHeight="100vh">
       <Register>
-          <SocialButtons />
           <FlexRowCenter mt="1.25rem">
             <Box>Already have an account?</Box>
             <Link href="/" passHref legacyBehavior>

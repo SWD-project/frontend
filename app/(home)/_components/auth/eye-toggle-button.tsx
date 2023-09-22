@@ -6,11 +6,11 @@ type EyeToggleButtonProps = { show: boolean; click: () => void }
 
 const EyeToggleButton = ({ show, click }: EyeToggleButtonProps) => {
   return (
-    <IconButton size="small" type="button" onClick={click}>
+    <IconButton size='small' type='button' onClick={click}>
       {show ? (
-        <Visibility className="passwordEye" fontSize="small" />
+        <Visibility className='passwordEye' fontSize='small' />
       ) : (
-        <VisibilityOff className="passwordEye" fontSize="small" />
+        <VisibilityOff className='passwordEye' fontSize='small' />
       )}
     </IconButton>
   )
