@@ -6,7 +6,8 @@ import Stack from '@mui/material/Stack'
 import { CSSObject } from '@mui/material/styles'
 import Carousel from './carousel-cards/carousel/carousel'
 import CarouselCard4 from './carousel-cards/carousel-card-4'
-
+import { H1 } from '@components/common/theme/typography'
+import { fontSize } from '@mui/system'
 
 interface MainCarouselItem {
   title?: string
@@ -40,9 +41,33 @@ const TopBanner = ({ carouselData }: Props) => {
     }
   }
 
+  const OverLoad = () => {
+    return (
+      <Box
+        sx={{
+          display: 'flex',
+          width: '1378px',
+          height: '100%',
+          bgcolor: 'rgba(0,0,0,0.5)',
+          position: 'absolute',
+          zIndex: 1,
+          alignItems: 'center',
+          color: 'white',
+          paddingLeft: 20
+        }}
+      >
+        <H1 fontSize={50}>
+          Draw Demy
+          <br></br>
+          <span style={{ fontSize: '25px', fontWeight: 400 }}>Unlock Your Creative Potential with Our Drawing Course!</span>
+        </H1>
+      </Box>
+    )
+  }
   return (
     <Box pt={3}>
-      <Container>
+      <Container sx={{ position: 'relative' }}>
+        <OverLoad />
         <Carousel
           spacing='0px'
           infinite={true}

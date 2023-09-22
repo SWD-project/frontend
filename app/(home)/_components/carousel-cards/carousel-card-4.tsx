@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 
 // custom styled components
 const CardWrapper = styled(Box)<{ img: string; mode: string }>(({ theme, img, mode }) => ({
-  minHeight: 517,
+  minHeight: 400,
   display: 'flex',
   alignItems: 'center',
   backgroundSize: 'cover',
