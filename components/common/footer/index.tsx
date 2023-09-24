@@ -29,7 +29,6 @@ import Link from 'next/link';
                   <Link href="#">MasterTrack Cetificate</Link>
                   <Link href="#">Degrees</Link>
                   <Link href="#">For Enterprise</Link>
-                  <Link href="#">For Goverment</Link>
                   <Link href="#">For Campus</Link>
                   <Link href="#">Become Link Partner</Link>
                   <Link href="#">Coronavirus Respone</Link>
