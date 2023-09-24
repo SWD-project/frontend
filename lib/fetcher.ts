@@ -19,10 +19,6 @@ export const fetcher = async (url: string, props: FetcherProps) => {
       ...options,
       cache: "no-store"
     },);
-
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
     const data = await response.json();
     return data;
   } catch (error: any) {

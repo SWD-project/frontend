@@ -17,6 +17,6 @@ export const useSignup = async ({firstName, lastName, email, password, redirectT
             password,
         }
     }
-    const data = await fetcher("/api/signup", fetcherProps)
-    return data
+    const res = await fetcher("/api/signup", fetcherProps)
+    return res
 }

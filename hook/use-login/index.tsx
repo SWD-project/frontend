@@ -1,13 +1,15 @@
-import { FetcherProps, fetcher } from "@lib/fetcher"
+import { FetcherProps, fetcher } from '@lib/fetcher'
+import { auth } from 'config/firebase'
+import { signInWithEmailAndPassword } from 'firebase/auth'
 
-export const useLogin = async (email: string, password: string) => {
-    const fetcherProps: FetcherProps = {
-        method: "POST",
-        body: {
-            email,
-            password
-        },
+export const useLogin = () => async (email: string, password: string) => {
+  const user = await signInWithEmailAndPassword(auth, email, password)
+  const fetcherProps: FetcherProps = {
+    method: 'POST',
+    body: {
+      accessToken: user.user.uid
     }
-    const data = await fetcher("/api/login", fetcherProps)
-    return data
+  }
+  const res = await fetcher('/api/login', fetcherProps)
+  return res
 }
