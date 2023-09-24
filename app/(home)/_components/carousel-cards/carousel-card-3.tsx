@@ -4,7 +4,6 @@ import FlexBox from '@components/common/theme/flex-box/flex-box';
 import Image from '@components/common/theme/image';
 import { H2, Paragraph, Small } from '@components/common/theme/typography';
 import { styled } from '@mui/material/styles';
-import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 
@@ -35,7 +34,6 @@ type Props = { product: any };
 // ==========================================================
 
 const CarouselCard3 = ({ product }: Props) => {
-  const t = useTranslations("index")
   return (
     <ContentWrapper>
       <StyledFlexBox>
@@ -48,7 +46,7 @@ const CarouselCard3 = ({ product }: Props) => {
         </Paragraph>
 
         <Link href={`/product/${product.name}`}>
-          <StyledShopButton>{t("SHOP NOW")}</StyledShopButton>
+          <StyledShopButton>SHOP NOW</StyledShopButton>
         </Link>
       </StyledFlexBox>
 
