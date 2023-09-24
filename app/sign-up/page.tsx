@@ -1,7 +1,7 @@
 import FlexRowCenter from "@components/common/theme/flex-box/flex-grow-center";
 import { H6 } from "@components/common/theme/typography";
 import { Box } from "@mui/material";
-import Register from "app/(home)/_components/auth/register";
+import Register from "app/sign-up/_components/register";
 import Link from "next/link";
 
 

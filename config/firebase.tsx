@@ -1,7 +1,8 @@
 'use client'
 // Import the functions you need from the SDKs you need
+// @ts-ignore
 import { initializeApp } from 'firebase/app'
-import { getAnalytics } from 'firebase/analytics'
+// @ts-ignore
 import { GoogleAuthProvider, getAuth } from 'firebase/auth';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries

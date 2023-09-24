@@ -1,19 +1,12 @@
+import { createCustomer } from '@lib/customer/create-customer'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
-  const body: any = await req.json()
   try {
-    // const res = await signup({
-    //     email: body.email,
-    //     firstName: body.firstName,
-    //     lastName: body.lastName,
-    //     password: body.password,
-    //     redirectTo: body.redirectTo
-    // })
+    const body: any = await req.json()
+    const res = await createCustomer(body)
     return NextResponse.json({
-      res: {
-        message: 'success'
-      }
+      res
     })
   } catch (error: any) {
     console.log(error)

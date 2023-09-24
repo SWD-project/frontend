@@ -16,11 +16,8 @@ import TextField from '@components/common/theme/text-field'
 import { useLogin } from 'hook/use-login'
 import { usePathname, useRouter } from 'next/navigation'
 import EyeToggleButton from './eye-toggle-button'
-import FlexRowCenter from '@components/common/theme/flex-box/flex-grow-center'
 import FlexBox from '@components/common/theme/flex-box/flex-box'
 import SocialButtons from './social-button'
-import { firebaseConfig } from 'config/firebase'
-import { initializeApp } from 'firebase/app'
 
 const fbStyle = { background: '#3B5998', color: 'white' }
 const googleStyle = { background: '#4285F4', color: 'white' }
@@ -83,7 +80,6 @@ const Login = ({ onClose }: LoginProps) => {
     validationSchema: formSchema
   })
 
-  const app = initializeApp(firebaseConfig)
   return (
     <Wrapper elevation={3} passwordVisibility={passwordVisibility}>
       <form onSubmit={handleSubmit}>

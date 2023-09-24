@@ -1,9 +1,9 @@
-import { getConfig, setConfig } from "./cookie";
-import { ReadonlyRequestCookies } from 'next/dist/server/web/spec-extension/adapters/request-cookies';
+import { getConfig, setConfig } from './cookie'
+import { ReadonlyRequestCookies } from 'next/dist/server/web/spec-extension/adapters/request-cookies'
 
-export const setAccessToken = async(accessToken: string, cookies: ReadonlyRequestCookies) => {
+export const setAccessToken = async (accessToken: string, cookies: ReadonlyRequestCookies) => {
   const config = getConfig(cookies)
-  config.accessToken = accessToken
+  if (accessToken) config.accessToken = accessToken
   setConfig(config, cookies)
 }
 

@@ -1,5 +1,6 @@
 import { FetcherProps, fetcher } from '@lib/fetcher'
 import { auth } from 'config/firebase'
+// @ts-ignore
 import { signInWithEmailAndPassword } from 'firebase/auth'
 
 export const useLogin = () => async (email: string, password: string) => {
