@@ -3,6 +3,7 @@ import ServiceList from "app/(home)/_components/service-list";
 import TopBanner from './_components/top-banner';
 import { TOP_BANNER_SLIDER } from './_components/config';
 import Header from '@components/common/header';
+import Footer from '@components/common/footer';
 
 export default async function StoreLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -20,7 +21,9 @@ export default async function StoreLayout({ children }: { children: React.ReactN
         }}
       >
         {children}
+
       </div>
+      <Footer/>
     </>
   )
 }
