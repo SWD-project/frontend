@@ -12,9 +12,9 @@ import TextField from '@components/common/theme/text-field'
 import { H1, H6 } from '@components/common/theme/typography'
 import { useSignup } from 'hook/use-signup'
 import { useRouter } from 'next/navigation'
-import EyeToggleButton from '../../(home)/_components/auth/eye-toggle-button'
-import { Wrapper } from '../../(home)/_components/auth/login'
 import FlexBox from '@components/common/theme/flex-box/flex-box'
+import { Wrapper } from 'app/(page)/_components/auth/login'
+import EyeToggleButton from 'app/(page)/_components/auth/eye-toggle-button'
 
 const Register = ({ children }: { children: ReactNode }) => {
   const [submitting, setSubmitting] = useState(false)
@@ -158,7 +158,7 @@ const Register = ({ children }: { children: ReactNode }) => {
           control={<Checkbox size='small' color='secondary' checked={values.agreement || false} />}
           label={
             <FlexBox flexWrap='wrap' alignItems='center' justifyContent='flex-start'>
-              "By signing up, you agree to"
+              By signing up, you agree to
               <a href='/' target='_blank' rel='noreferrer noopener'>
                 <H6 ml={1} borderBottom='1px solid' borderColor='grey.900'>
                   Terms & Condtion

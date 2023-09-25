@@ -1,5 +1,4 @@
 'use client'
-import Login from 'app/(home)/_components/auth/login'
 import User from '@components/common/theme/icons/user'
 import PersonOutline from '@mui/icons-material/PersonOutline'
 import Box from '@mui/material/Box'
@@ -7,6 +6,7 @@ import Dialog from '@mui/material/Dialog'
 import IconButton from '@mui/material/IconButton'
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
+import Login from 'app/(page)/_components/auth/login'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 export const LoginDialog = ({ accessToken }: { accessToken: string }) => {
