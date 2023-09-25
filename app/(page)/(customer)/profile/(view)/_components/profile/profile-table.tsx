@@ -2,7 +2,7 @@
 import { ReactNode } from "react"
 import { Theme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import TableRow from "@mui/material/TableRow"
+import TableRow from "@components/common/theme/table-row"
 export const ProfileTable = ({ children }: { children: ReactNode }) => {
     const downMd = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'))
     return (

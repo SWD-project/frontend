@@ -1,10 +1,13 @@
 import { H5 } from "@components/common/theme/typography"
-import { Avatar, Box, Card, Grid, Skeleton } from "@mui/material"
-import { cookies } from "next/headers"
 import { TableRowItem } from "./_components/profile/profile-table-item"
 import FlexBetween from "@components/common/theme/flex-box/flex-between"
 import FlexBox from "@components/common/theme/flex-box/flex-box"
 import { ProfileTable } from "./_components/profile/profile-table"
+import Skeleton from "@mui/material/Skeleton"
+import Box from "@mui/material/Box"
+import Grid from "@mui/material/Grid"
+import Card from "@mui/material/Card"
+import Avatar from "@mui/material/Avatar"
 
 export default async function Loading() {
     const ProfileLoading = (

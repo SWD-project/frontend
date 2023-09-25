@@ -3,7 +3,7 @@ import { ReadonlyRequestCookies } from 'next/dist/server/web/spec-extension/adap
 
 export const setAccessToken = async (accessToken: string, cookies: ReadonlyRequestCookies) => {
   const config = getConfig(cookies)
-  if (accessToken) config.accessToken = accessToken
+  config.accessToken = accessToken
   setConfig(config, cookies)
 }
 

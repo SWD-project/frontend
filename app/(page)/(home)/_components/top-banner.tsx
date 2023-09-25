@@ -46,14 +46,14 @@ const TopBanner = ({ carouselData }: Props) => {
       <Box
         sx={{
           display: 'flex',
-          width: '1378px',
+          width: '1328px',
           height: '100%',
           bgcolor: 'rgba(0,0,0,0.5)',
           position: 'absolute',
           zIndex: 1,
           alignItems: 'center',
           color: 'white',
-          paddingLeft: 20
+          paddingLeft: '100px'
         }}
       >
         <H1 fontSize={50}>

@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
+    console.log('hello')
     await setAccessToken('', cookies())
     return NextResponse.json({
       res: {

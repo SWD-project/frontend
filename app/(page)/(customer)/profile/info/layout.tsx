@@ -1,8 +1,9 @@
 import UserDashboardHeader from '@components/common/header/user-dashboard-header'
 import Card1 from '@components/common/theme/card1'
 import FlexBox from '@components/common/theme/flex-box/flex-box'
-import { Person } from '@mui/icons-material'
-import { Avatar, Button } from '@mui/material'
+import Person from '@mui/icons-material/Person'
+import Avatar from '@mui/material/Avatar'
+import Button from '@mui/material/Button'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 

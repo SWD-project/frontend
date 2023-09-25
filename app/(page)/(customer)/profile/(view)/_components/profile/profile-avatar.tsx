@@ -2,10 +2,10 @@ import Card from '@components/common/theme/card'
 import FlexBetween from '@components/common/theme/flex-box/flex-between'
 import FlexBox from '@components/common/theme/flex-box/flex-box'
 import { H5 } from '@components/common/theme/typography'
-import { getAccessToken } from '@lib/handler/user-cookie'
 import { User } from '@lib/model/user'
-import { Avatar, Box, Grid } from '@mui/material'
-import { cookies } from 'next/headers'
+import Avatar from '@mui/material/Avatar'
+import Box from '@mui/material/Box'
+import Grid from '@mui/material/Grid'
 
 export default async function ProfileAvatar({ customer }: { customer?: User }) {
   return (
