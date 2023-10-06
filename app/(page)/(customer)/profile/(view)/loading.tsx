@@ -25,7 +25,7 @@ export default async function Loading() {
                 value={<Skeleton width={100} />}
             />
             <TableRowItem
-                title="Phone"
+                title="Account"
                 value={<Skeleton width={100} />}
             />
         </>

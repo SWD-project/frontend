@@ -1,18 +1,17 @@
 import { FetcherProps } from '@lib/fetcher'
 import { fetcher } from '@lib/fetcher'
 import { auth } from 'config/firebase'
-// @ts-ignore
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
 export const useSignup = () => async ({
   firstName,
   lastName,
-  birthDate,
+  roleId,
   email,
   password
 }: {
   firstName: string
   lastName: string
-  birthDate: string
+  roleId: string
   email: string
   password: string
 }) => {
@@ -28,7 +27,7 @@ export const useSignup = () => async ({
       firstName,
       lastName,
       email,
-      birthDate,
+      roleId,
       password,
       uuid: user.user.uid
     }

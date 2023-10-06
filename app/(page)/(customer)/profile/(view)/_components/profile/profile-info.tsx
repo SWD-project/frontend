@@ -7,6 +7,7 @@ export default async function ProfileInfo({ customer }: { customer?: User }) {
       <TableRowItem title='First Name' value={customer?.firstName} />
       <TableRowItem title='Last Name' value={customer?.lastName} />
       <TableRowItem title='Email' value={customer?.email} />
+      <TableRowItem title='Account' value={customer?.roleId === "1" ? "Lecture" : "Student" } />
     </>
   )
 }

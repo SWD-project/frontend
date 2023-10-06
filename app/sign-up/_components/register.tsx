@@ -34,7 +34,7 @@ const Register = ({ children }: { children: ReactNode }) => {
         firstName: values.first_name,
         lastName: values.last_name,
         password: values.password,
-        birthDate: ''
+        roleId: values.isLecture ? "1" : "0"
       })
       if (data.error === undefined) {
         enqueueSnackbar('Register success', { variant: 'success' })
@@ -152,18 +152,13 @@ const Register = ({ children }: { children: ReactNode }) => {
         />
 
         <FormControlLabel
-          name='agreement'
+          name='isLecture'
           className='agreement'
           onChange={handleChange}
-          control={<Checkbox size='small' color='secondary' checked={values.agreement || false} />}
+          control={<Checkbox size='small' color='secondary' checked={values.isLecture || false} />}
           label={
             <FlexBox flexWrap='wrap' alignItems='center' justifyContent='flex-start'>
-              By signing up, you agree to
-              <a href='/' target='_blank' rel='noreferrer noopener'>
-                <H6 ml={1} borderBottom='1px solid' borderColor='grey.900'>
-                  Terms & Condtion
-                </H6>
-              </a>
+              Lecture account
             </FlexBox>
           }
         />
@@ -176,7 +171,7 @@ const Register = ({ children }: { children: ReactNode }) => {
           variant='contained'
           sx={{ height: 44, backgroundColor: `#E3364E` }}
         >
-          Create Account"
+          Create Account
         </LoadingButton>
       </form>
       {children}
@@ -188,10 +183,9 @@ const initialValues = {
   first_name: '',
   last_name: '',
   email: '',
-  phone: '',
   password: '',
   re_password: '',
-  agreement: false
+  isLecture: false
 }
 
 const formSchema = yup.object().shape({
@@ -204,10 +198,8 @@ const formSchema = yup.object().shape({
     .string()
     .oneOf([yup.ref('password')], 'Passwords must match')
     .required('Please re-type password'),
-  agreement: yup
+  isLecture: yup
     .bool()
-    .test('agreement', 'You have to agree with our Terms and Conditions!', value => value)
-    .required('You have to agree with our Terms and Conditions!')
 })
 
 export default Register

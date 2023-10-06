@@ -95,44 +95,6 @@ const linkList = [
     }
 ]
 
-//     linkList: [
-//       {
-//         title: 'ទាំងគ្រប់គ្រង',
-//         list: [
-//           { href: '/orders', title: 'ការបញ្ជាទិញ', icon: ShoppingBagOutlined, count: 0 },
-//           // {
-//           //   href: '/wish-list',
-//           //   title: 'Wishlist',
-//           //   icon: FavoriteBorder,
-//           //   count: 0,
-//           // },
-//         ],
-//       },
-//       {
-//         title: 'ការកំណត់គណនី',
-//         list: [
-//           { href: '/profile', title: 'ព័ត៌មានផ្ទាល់ខ្លួន', icon: Person, count: 0 },
-//           { href: '/address', title: 'អាសយដ្ឋាន', icon: Place, count: 0 },
-//           { href: '/password', title: 'ពាក្យសម្ងាត់', icon: Key, count: 0}
-//           // {
-//           //   href: '/payment-methods',
-//           //   title: 'Payment Methods',
-//           //   icon: CreditCard,
-//           //   count: 0,
-//           // },
-//         ],
-//       },
-//       {
-//         title: 'ការគ្រប់គ្រងដឹកជញ្ជូន',
-//         list: [
-//           {
-//             href: '/shipping-account',
-//             title: 'គណនីដឹកជញ្ជូន',
-//             icon: Person,
-//             count: 0,
-//           },
-//         ],
-//       },
 
 
 export default Navigations
