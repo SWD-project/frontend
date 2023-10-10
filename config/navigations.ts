@@ -5,33 +5,35 @@ import USFlag from '@components/common/theme/icons/flag/us'
 
 const navigations = [
   {
-    icon: USFlag,
-    title: 'Amazon US',
-    href: '/deals/us',
+    title: 'Cartoon and comic',
+    href: '/category/cartoon-and-comic/651e06337d2c1c9dcd655edb',
     menuComponent: 'MegaMenu1',
     menuData: {},
   },
   {
-    icon: DEFlag,
-    title: 'Amazon Germany',
-    href: '/deals/de',
+    title: 'Art History and Theory',
+    href: '/art-history-and-theory/652019ee22caeb1c0334d6a5',
     menuComponent: 'MegaMenu1',
     menuData: {},
   },
   {
-    icon: JPFlag,
-    title: 'Amazon Japan',
-    href: '/deals/jp',
+    title: 'Foundational',
+    href: '/foundational/65201a0722caeb1c0334d6a8',
     menuComponent: 'MegaMenu1',
     menuData: {},
   },
   {
-    icon: UKFlag,
-    title: 'Amazon UK',
-    href: '/deals/uk',
+    title: 'Digital',
+    href: '/digital/65201a1722caeb1c0334d6ab',
     menuComponent: 'MegaMenu1',
     menuData: {},
   },
+  {
+    title: "Specialized",
+    href: '/specialized/65201a2922caeb1c0334d6ae',
+    menuComponent: 'MegaMenu1',
+    menuData: {},
+  }
 ]
 
 export default navigations

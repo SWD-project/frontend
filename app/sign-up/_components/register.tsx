@@ -15,6 +15,7 @@ import { useRouter } from 'next/navigation'
 import FlexBox from '@components/common/theme/flex-box/flex-box'
 import { Wrapper } from 'app/(page)/_components/auth/login'
 import EyeToggleButton from 'app/(page)/_components/auth/eye-toggle-button'
+import { config } from '@lib/model'
 
 const Register = ({ children }: { children: ReactNode }) => {
   const [submitting, setSubmitting] = useState(false)
@@ -34,7 +35,7 @@ const Register = ({ children }: { children: ReactNode }) => {
         firstName: values.first_name,
         lastName: values.last_name,
         password: values.password,
-        roleId: values.isLecture ? "1" : "0"
+        roleId: values.isLecture ? config.lecture : config.student
       })
       if (data.error === undefined) {
         enqueueSnackbar('Register success', { variant: 'success' })

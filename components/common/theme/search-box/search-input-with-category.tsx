@@ -38,14 +38,7 @@ export default function SearchInputWithCategory() {
   const [category, setCategory] = useState('us')
   const [keyword, setKeyword] = useState('')
   const [suggestionList, setSuggestionList] = useState<string[]>([])
-  const [categoryTitle, setCategoryTitle] = useState('Amazon US')
   const [loadingSuggestSearch, setLoadingSuggestSearch] = useState(false)
-
-  // HANDLE CHANGE THE CATEGORY
-  const handleCategoryChange = (cat: { title: string; value: string }) => () => {
-    setCategory(cat.value)
-    setCategoryTitle(cat.title)
-  }
 
   // FETCH PRODUCTS VIA API
   // const getProducts = async (searchText: string, category?: string) => {
@@ -87,7 +80,7 @@ export default function SearchInputWithCategory() {
       setSuggestionList([])
       setLoadingSuggestSearch(true)
       const fixedKeyword = keyword
-      router.push(`/search/${category}/${fixedKeyword}`)
+      router.push(`/search/${fixedKeyword}`)
     }
   }
 
@@ -97,34 +90,6 @@ export default function SearchInputWithCategory() {
     window.addEventListener('click', handleDocumentClick)
     return () => window.removeEventListener('click', handleDocumentClick)
   }, [])
-
-  // CATEGORY MENU DROPDOWN
-  const categoryDropdown = (
-    <AppMenu
-      direction='left'
-      sx={{ zIndex: breakpoints.down('md') ? 99999 : 1502 }}
-      handler={
-        <DropDownHandler
-          px={3}
-          gap={0.5}
-          height='100%'
-          color='grey.700'
-          bgcolor='grey.100 !important'
-          alignItems='center'
-          component={TouchRipple}
-        >
-          {categoryTitle}
-          <KeyboardArrowDownOutlined fontSize='small' color='inherit' />
-        </DropDownHandler>
-      }
-    >
-      {categories.map(item => (
-        <MenuItem key={item.value} onClick={handleCategoryChange(item)}>
-          {item.title}
-        </MenuItem>
-      ))}
-    </AppMenu>
-  )
 
   return (
     <Box position='relative' flex='1 1 0' maxWidth='670px' mx='auto' {...{ ref: parentRef }}>
@@ -145,7 +110,6 @@ export default function SearchInputWithCategory() {
               borderColor: 'primary.main'
             }
           },
-          endAdornment: categoryDropdown,
           startAdornment: <SearchOutlinedIcon fontSize='small' />
         }}
       />
@@ -174,10 +138,3 @@ export default function SearchInputWithCategory() {
     </Box>
   )
 }
-
-const categories = [
-  { title: 'Amazon US', value: 'us' },
-  { title: 'Amazon Germany', value: 'de' },
-  { title: 'Amazon UK', value: 'uk' },
-  { title: 'Amazon Japan', value: 'jp' }
-]
