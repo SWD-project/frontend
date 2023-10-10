@@ -1,7 +1,6 @@
 import Navbar from '@components/common/theme/navbar'
 import Header from '@components/common/header';
 import Footer from '@components/common/footer';
-import { Filter } from './search/[param]/_components';
 
 export default async function StoreLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -19,7 +18,6 @@ export default async function StoreLayout({ children }: { children: React.ReactN
         {children}
 
       </div>
-      <Filter/>
       <Footer/>
     </>
   )

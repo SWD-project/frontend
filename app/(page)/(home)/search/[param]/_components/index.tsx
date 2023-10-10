@@ -1,66 +1,37 @@
 'use client'
-import { Checkbox, FormControlLabel, FormGroup, Link, Typography } from "@mui/material"
-import Grid from "@mui/material/Grid"
-import Stack from "@mui/material/Stack"
-import { Container } from "@mui/system"
+import Card1 from '@components/common/theme/card1'
+import Checkbox from '@mui/material/Checkbox'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import FormGroup from '@mui/material/FormGroup'
+import Stack from '@mui/material/Stack'
+import Typography from '@mui/material/Typography'
 
 export const Filter = () => {
-  return <>
-  <Container maxWidth = 'lg'>
-      <Grid>
-        <Stack spacing={1}>
-        
-          <Grid container> 
-            <Grid xs={3}>
-            <Typography>
-              <h3>Filter By</h3>
-            </Typography>
-            
-           <Typography>
-              <Typography>
-                <h4>Skills</h4>
-              </Typography>
+  return (
+    <Card1>
+      <Stack spacing={3}>
+        <Typography variant='h5'>Filter By</Typography>
 
-              <FormGroup>
-                <FormControlLabel control={<Checkbox />} label="Account Managerment" />
-                <FormControlLabel required control={<Checkbox />} label="Accounting" />
-                <FormControlLabel required control={<Checkbox />} label="Accounting Software" />
-                <FormControlLabel required control={<Checkbox />} label="Accounts Payable and Receivable" />
-              </FormGroup>
+        <div>
+          <Typography variant='h6'>Skills</Typography>
 
-                <Typography>
-                  <Link>
-                    Show more
-                  </Link>
-                </Typography>
-           </Typography>
+          <FormGroup>
+            <FormControlLabel control={<Checkbox />} label='Account Managerment' />
+            <FormControlLabel required control={<Checkbox />} label='Accounting' />
+            <FormControlLabel required control={<Checkbox />} label='Accounting Software' />
+            <FormControlLabel required control={<Checkbox />} label='Accounts Payable' />
+          </FormGroup>
+        </div>
+        <div>
+          <Typography variant='h6'>Levels</Typography>
 
-           <Typography>
-              <Typography>
-                <h4>Levels</h4>
-              </Typography>
-
-              <FormGroup>
-                <FormControlLabel control={<Checkbox/>} label="Beginers" />
-                <FormControlLabel required control={<Checkbox />} label="Intermediate" />
-                <FormControlLabel required control={<Checkbox />} label="Advanced" />
-               
-              </FormGroup>
-
-                <Typography>
-                  <Link>
-                    Show more
-                  </Link>
-                </Typography>
-           </Typography>
-           
-
-
-            </Grid>
-          </Grid>
-        </Stack>
-      </Grid>
-    
-  </Container>
-  </>
+          <FormGroup>
+            <FormControlLabel control={<Checkbox />} label='Beginers' />
+            <FormControlLabel required control={<Checkbox />} label='Intermediate' />
+            <FormControlLabel required control={<Checkbox />} label='Advanced' />
+          </FormGroup>
+        </div>
+      </Stack>
+    </Card1>
+  )
 }
