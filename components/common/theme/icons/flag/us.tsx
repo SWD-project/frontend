@@ -11,7 +11,6 @@ const USFlag = (props: SvgIconProps) => {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      {/*<style type="text/css">.st0{fill:#B22234;} .st1{fill:#FFFFFF;} .st2{fill:#3C3B6E;}</style>*/}
       <g>
         <path
           style={{

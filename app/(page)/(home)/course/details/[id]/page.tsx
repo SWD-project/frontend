@@ -1,5 +1,6 @@
-import { CourseDetail } from "./_components/course-detail";
+
+import { CourseDetailPage } from './_components'
 
 export default async function Page() {
-  return <CourseDetail />
+  return <CourseDetailPage />
 }
