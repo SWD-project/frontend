@@ -106,7 +106,7 @@ export default async function Footer() {
             </Grid>
           </Stack>
         </Container>
-      </Card1>
+</Card1>
     </>
   )
 }
