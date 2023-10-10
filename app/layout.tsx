@@ -11,11 +11,9 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   return (
     <html>
       <body>
-        <MuiTheme>
-          <SnackbarProvider>
-            <TanQueryProvider>{children}</TanQueryProvider>
-          </SnackbarProvider>
-        </MuiTheme>
+        <SnackbarProvider>
+          <MuiTheme>{children}</MuiTheme>
+        </SnackbarProvider>
       </body>
     </html>
   )
