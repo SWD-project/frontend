@@ -1,5 +1,5 @@
 'use client'
-import { H1, H2, H4 } from '@components/common/theme/typography'
+import { H4, Span } from '@components/common/theme/typography'
 import Rating from '@mui/material/Rating'
 import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
@@ -9,15 +9,17 @@ export const CourseDetail = () => {
   return (
     <Stack spacing={2}>
       <Typography fontSize={'3rem'}>The Complete Python Bootcamp From Zero to Hero in Python</Typography>
-      <H4>
+      <Typography>
         Learn Python like a Professional Start from the basics and go all the way to creating your own applications and
         games
-      </H4>
-      <FlexBox>
+      </Typography>
+      <FlexBox alignItems={'center'}>
         <Rating name='half-rating-read' defaultValue={4.6} precision={0.5} readOnly />
         (480,973 ratings)
       </FlexBox>
-      <Box>Create By Jose Portilla</Box>
+      <Box>
+        Create By <Span color='red' fontSize={'1rem'}>Jose Portilla</Span>
+      </Box>
     </Stack>
   )
 }
