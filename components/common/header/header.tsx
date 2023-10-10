@@ -106,7 +106,7 @@ const Header = ({ isFixed, className, searchInput, children }: HeaderProps) => {
           >
             <Box sx={{ width: 'auto', padding: 2, height: '100vh' }}>
               <FlexBetween mb={1}>
-                <Paragraph>Search to Fado168</Paragraph>
+                <Paragraph>Search to </Paragraph>
 
                 <IconButton onClick={toggleSearchBar}>
                   <Clear />
