@@ -10,7 +10,7 @@ import Box from '@mui/material/Box'
 export const CourseDetail = () => {
   return (
     <Stack spacing={2}>
-      <H1>The Complete Python Bootcamp From Zero to Hero in Python</H1>
+      <Typography fontSize={'2rem'}>The Complete Python Bootcamp From Zero to Hero in Python</Typography>
       <H4>
         Learn Python like a Professional Start from the basics and go all the way to creating your own applications and
         games

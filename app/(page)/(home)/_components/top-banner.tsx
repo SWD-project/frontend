@@ -24,7 +24,6 @@ type Props = { carouselData: MainCarouselItem[] }
 // ======================================================
 
 const TopBanner = ({ carouselData }: Props) => {
-  // custom css
   const carouselStyles: CSSObject = {
     overflow: 'hidden',
     borderRadius: '3px',

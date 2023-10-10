@@ -64,13 +64,13 @@ export default async function Footer() {
             <Grid item xs={3}>
               <Stack spacing={1}>
                 <h2>Mobile App</h2>
-                <Link href='#'>
+                {/* <Link href='#'>
                   <img src='../../app/img/app-store-png-logo-33109.png' alt='App Store Logo' height='auto' />
                 </Link>
 
                 <Link href='#'>
                   <img src='../../app/img/Google-Play-Logo-PNG-Cutout.png' alt='Google Play Logo' height='auto' />
-                </Link>
+                </Link> */}
               </Stack>
             </Grid>
           </Grid>
@@ -82,7 +82,7 @@ export default async function Footer() {
 
               <Grid item xs={4}>
                 <Stack spacing={1} direction='row'>
-                  <Link href='https://www.facebook.com/'>
+                  {/* <Link href='https://www.facebook.com/'>
                     <FacebookIcon />
                   </Link>
 
@@ -100,7 +100,7 @@ export default async function Footer() {
 
                   <Link href='https://www.instagram.com/?hl=en'>
                     <InstagramIcon />
-                  </Link>
+                  </Link> */}
                 </Stack>
               </Grid>
             </Grid>
