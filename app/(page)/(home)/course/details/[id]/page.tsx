@@ -2,6 +2,7 @@ import Grid from '@mui/material/Grid'
 import { CourseDetail } from './_components/course-detail'
 import { CourseCheckout } from './_components/course-checkout'
 import Box from '@mui/material/Box'
+import Card from '@mui/material/Card'
 
 export default async function Page() {
   return (
@@ -13,6 +14,11 @@ export default async function Page() {
       </Grid>
       <Grid item xs={4}>
         <CourseCheckout />
+      </Grid>
+      <Grid item xs={12}>
+        <Card>
+          What you will learn
+        </Card>
       </Grid>
     </Grid>
   )
