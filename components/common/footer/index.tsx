@@ -72,7 +72,7 @@ import Link from 'next/link';
                       src="../../app/img/app-store-png-logo-33109.png"
                       alt="App Store Logo"
                       
-                      height="auto" // Điều này đảm bảo tỷ lệ khung hình đúng
+                      height="auto" 
                     />
                   </Link>
                  
@@ -81,7 +81,7 @@ import Link from 'next/link';
                       src="../../app/img/Google-Play-Logo-PNG-Cutout.png"
                       alt="Google Play Logo"
                       
-                      height="auto" // Điều này đảm bảo tỷ lệ khung hình đúng
+                      height="auto" 
                     />
                   </Link>
   
