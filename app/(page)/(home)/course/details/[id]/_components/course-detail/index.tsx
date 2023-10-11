@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
 import FlexBox from '@components/common/theme/flex-box/flex-box'
 import Box from '@mui/material/Box'
+import NewReleasesIcon from '@mui/icons-material/NewReleases';
 export const CourseDetail = () => {
   return (
     <Stack spacing={2}>
@@ -20,6 +21,11 @@ export const CourseDetail = () => {
       <Box>
         Create By <Span color='red' fontSize={'1rem'}>Jose Portilla</Span>
       </Box>
+      <FlexBox alignItems={'center'} >
+        <NewReleasesIcon/>
+        Last Updated 
+        <Typography marginLeft={'10px'}> 7/2023</Typography>
+      </FlexBox>
     </Stack>
   )
 }
