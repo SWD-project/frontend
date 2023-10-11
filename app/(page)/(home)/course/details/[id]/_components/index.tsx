@@ -8,8 +8,7 @@ import Card from '@mui/material/Card'
 import { H1 } from '@components/common/theme/typography'
 import Typography from '@mui/material/Typography'
 import CheckIcon from '@mui/icons-material/Check'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
+import FlexBox from '@components/common/theme/flex-box/flex-box'
 export const CourseDetailPage = () => {
   return (
     <Grid container spacing={3}>
@@ -21,68 +20,43 @@ export const CourseDetailPage = () => {
       <Grid item xs={4}>
         <CourseCheckout />
       </Grid>
-        <Card sx={{ marginBottom: 5 }}>
-          <div style={{ padding: '40px' }}>
-            <H1 sx={{ fontWeight: 900 }}>What you will learn</H1>
-            <Grid container spacing={2}>
-              <Grid item xs={4}>
-                <Box sx={{ bgcolor: 'background.paper' }}>
-                  <nav aria-label='main mailbox folders'>
-                    <List>
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <CheckIcon />
-                        <Typography fontSize={'17px'} margin={'10px'}>
-                          Process data PROFESSIONALLY like a Data Analyst, Business Analyst or Data Scientist
-                        </Typography>
-                      </div>
-
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <CheckIcon />
-                        <Typography fontSize={'17px'} margin={'10px'}>
-                          Build a MACHINE LEARNING model with Scikit-Learn
-                        </Typography>
-                      </div>
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <CheckIcon />
-                        <Typography fontSize={'17px'} margin={'10px'}>
-                          Build a MACHINE LEARNING model with Scikit-Learn
-                        </Typography>
-                      </div>
-                    </List>
-                  </nav>
-                </Box>
-              </Grid>
-              <Grid item xs={4}>
-                <Box sx={{ bgcolor: 'background.paper' }}>
-                  <nav aria-label='main mailbox folders'>
-                    <List>
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <CheckIcon />
-                        <Typography fontSize={'17px'} margin={'10px'}>
-                          Proficient in VISUALIZING data for INSIGHT with Matplotlib and Seaborn.{' '}
-                        </Typography>
-                      </div>
-
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <CheckIcon />
-                        <Typography fontSize={'17px'} margin={'10px'}>
-                          Learn and practice on REAL data
-                        </Typography>
-                      </div>
-
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <CheckIcon />
-                        <Typography fontSize={'17px'}>
-                          Seize career opportunities in the fields of Data Analyst, Data Scientist and Business Analyst.
-                        </Typography>
-                      </div>
-                    </List>
-                  </nav>
-                </Box>
+      <Card sx={{ marginBottom: 5, marginTop: 1, width: '100%' }}>
+        <div style={{ padding: '40px' }}>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <H1 sx={{ fontWeight: 500 }}>What you will learn</H1>
+            </Grid>
+            <Grid item xs={8}>
+              <Grid container spacing={2}>
+                <Grid item xs={6}>
+                  <FlexBox alignItems={'center'}>
+                    <CheckIcon />
+                    <Typography fontSize={'15px'} margin={'10px'}>
+                      Process data PROFESSIONALLY like a Data Analyst, Business Analyst or Data Scientist
+                    </Typography>
+                  </FlexBox>
+                </Grid>
+                <Grid item xs={6}>
+                  <FlexBox alignItems={'center'}>
+                    <CheckIcon />
+                    <Typography fontSize={'15px'} margin={'10px'}>
+                      Process data PROFESSIONALLY like a Data Analyst, Business Analyst or Data Scientist
+                    </Typography>
+                  </FlexBox>
+                </Grid>
+                <Grid item xs={6}>
+                  <FlexBox alignItems={'center'}>
+                    <CheckIcon />
+                    <Typography fontSize={'15px'} margin={'10px'}>
+                      Process data PROFESSIONALLY like a Data Analyst, Business Analyst or Data Scientist
+                    </Typography>
+                  </FlexBox>
+                </Grid>
               </Grid>
             </Grid>
-          </div>
-        </Card>
-      </Grid>
+          </Grid>
+        </div>
+      </Card>
+    </Grid>
   )
 }

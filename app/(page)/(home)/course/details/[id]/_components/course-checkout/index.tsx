@@ -9,7 +9,7 @@ import Stack from '@mui/material/Stack'
 
 export const CourseCheckout = () => {
   return (
-    <Card1 sx={{ boxShadow: '0px 0px 5px gray' }}>
+    <Card1 sx={{ boxShadow: '0px 0px 5px gray', position: "fixed" }}>
       <Stack spacing={1}>
         <Image
           src='https://th.bing.com/th/id/OIP.D0yFfByllv1FGGCTh66vGAHaD4?pid=ImgDet&rs=1'
