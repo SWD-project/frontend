@@ -2,7 +2,7 @@
 import Card1 from '@components/common/theme/card1'
 import FlexBox from '@components/common/theme/flex-box/flex-box'
 import Image from '@components/common/theme/image'
-import { H1, H3 } from '@components/common/theme/typography'
+import { H1, H2, H3 } from '@components/common/theme/typography'
 import LoadingButton from '@mui/lab/LoadingButton'
 import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
@@ -19,9 +19,9 @@ export const CourseCheckout = () => {
             width: 386
           }}
         />
-        <FlexBox>
+        <FlexBox alignItems={"baseline"}>
           <H1>$100</H1>
-          <H1 sx={{ color: 'gray', marginLeft: 1, textDecorationLine: 'line-through' }}>$200</H1>
+          <H2 sx={{ color: 'gray', marginLeft: 1, textDecorationLine: 'line-through' }}>$200</H2>
         </FlexBox>
         <Typography sx={{ fontSize: '1.1rem'}}>Sale of 50%</Typography>
         <LoadingButton
