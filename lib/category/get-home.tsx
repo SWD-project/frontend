@@ -5,7 +5,7 @@ import { HomeRequest, HomeResponse } from '@lib/model/category/get-category-cour
 export const getHomePage = async (request: HomeRequest): Promise<ResponseBody<HomeResponse>> => {
   try {
     const fetcherProps: FetcherProps = {
-      method: 'POST'
+      method: 'POST',
     }
     const res = await fetcher(`${process.env.BACKEND}/category/home`, fetcherProps)
     return res
