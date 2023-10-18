@@ -27,7 +27,7 @@ export default async function HomePage() {
           products={value.course}
           store={value.name}
           title={value.name}
-          moreHref={`/${value.name.toLowerCase().replaceAll(' ', '-')}/${value._id}`}
+          moreHref={`/category/${value.name.toLowerCase().replaceAll(' ', '-')}/${value._id}`}
         />
       ))}
     </>

@@ -181,7 +181,7 @@ const Navbar = ({ navListOpen = false, hideCategories = false, elevation = 2, bo
             <CategoryMenuButton variant='text'>
               <Category fontSize='small' />
               <Paragraph fontWeight='600' textAlign='left' flex='1 1 0' ml={1.25} color='grey.600'>
-                Stores
+                Category
               </Paragraph>
 
               <ChevronRight className='dropdown-icon' fontSize='small' />

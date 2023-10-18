@@ -1,4 +1,5 @@
 "use client"
+
 import Carousel from '@components/common/theme/carousel/carousel'
 import { carouselStyled } from '@components/common/theme/carousel/styles'
 import ProductCard13 from '@components/product/product-card-13'

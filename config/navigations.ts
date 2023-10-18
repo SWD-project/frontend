@@ -12,25 +12,25 @@ const navigations = [
   },
   {
     title: 'Art History and Theory',
-    href: '/art-history-and-theory/652019ee22caeb1c0334d6a5',
+    href: '/category/art-history-and-theory/652019ee22caeb1c0334d6a5',
     menuComponent: 'MegaMenu1',
     menuData: {},
   },
   {
     title: 'Foundational',
-    href: '/foundational/65201a0722caeb1c0334d6a8',
+    href: '/category/foundational/65201a0722caeb1c0334d6a8',
     menuComponent: 'MegaMenu1',
     menuData: {},
   },
   {
     title: 'Digital',
-    href: '/digital/65201a1722caeb1c0334d6ab',
+    href: '/category/digital/65201a1722caeb1c0334d6ab',
     menuComponent: 'MegaMenu1',
     menuData: {},
   },
   {
     title: "Specialized",
-    href: '/specialized/65201a2922caeb1c0334d6ae',
+    href: '/category/specialized/65201a2922caeb1c0334d6ae',
     menuComponent: 'MegaMenu1',
     menuData: {},
   }

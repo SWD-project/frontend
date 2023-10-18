@@ -13,7 +13,7 @@ import Card1 from '../theme/card1'
 export default async function Footer() {
   return (
     <>
-      <Card1>
+      <Card1 sx={{marginTop: 1}}>
         <Container maxWidth='lg'>
           <Grid container>
             <Grid item xs={3}>

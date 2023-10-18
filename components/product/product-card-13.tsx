@@ -96,11 +96,12 @@ type ProductCardProps = {
 // ===============================================================
 const initProductCard: any = {
   href: '',
+  title: "",
   image: { alt: '', url: '' },
   id: '',
   sku: '',
   name: '',
-  rating: 4,
+  rating: 0,
   reviews: 0
 };
 const ProductCard13 = ({
@@ -152,8 +153,8 @@ const ProductCard13 = ({
           </Link>
 
           <FlexBox gap={1} alignItems="center">
-            <Rating value={product.rating + 4} color="warn" readOnly />
-            <Span color="grey.600">{`(${(Math.random() * 100000).toFixed(0).toString()})`}</Span>
+            <Rating value={product.rating} color="warn" readOnly />
+            <Span color="grey.600">{`(${(product.discountPercent * 10 +1) * product.title?.length})`}</Span>
           </FlexBox>
 
           <FlexBox gap={1} alignItems="center" mt={0.5}>

@@ -10,8 +10,6 @@ export const Filter = () => {
   return (
     <Card1>
       <Stack spacing={3}>
-        <Typography variant='h5'>Filter By</Typography>
-
         <div>
           <Typography variant='h6'>Skills</Typography>
 
