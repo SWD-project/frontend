@@ -15,12 +15,12 @@ type CategoryPagingProps = {
 // ===================================================
 
 const CategoryPaging = ({ categoryId, page, onData }: CategoryPagingProps) => {
-  const res = useGetCategory({ page, categoryId })
+  const res = useGetCategory({ page, id: categoryId, limit: 7 })
   useEffect(() => {
-    onData && onData(res.data[0]?.course as Course[])
-  }, [res.data, onData])
+    onData && onData(res?.data[0]?.course as Course[])
+  }, [res?.data, onData])
 
-  return res.data[0]?.course.map((item: Course) => (
+  return res?.data[0]?.course.map((item: Course) => (
     <Grid item lg={2} md={3} sm={4} xs={6} key={item._id}>
       <ProductCard13 product={item} price={true} />
     </Grid>

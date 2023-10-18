@@ -19,7 +19,6 @@ export const metadata = {
 
 export default async function HomePage() {
   const home = (await getHomePage({})) || {}
-
   return (
     <>
       {home.data.map(value => (

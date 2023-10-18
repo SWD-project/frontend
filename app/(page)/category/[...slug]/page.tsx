@@ -18,6 +18,6 @@ export const metadata = {
 }
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
-  const res = await getACategory({ id: params.slug[1] as string, page: 1, limit: 6 })
+  const res = await getACategory({ id: params.slug[1] as string, page: 1, limit: 7 })
   return <CategoryPage categoryId={params.slug[1] as string} courses={res.data[0]?.course as Course[]} />
 }

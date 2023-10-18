@@ -11,6 +11,7 @@ export default function CategoryPage({ categoryId, courses }: { categoryId: stri
   const [currentPage, setCurrentPage] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
   const handleEnterWaypoint = async () => {
+    console.log("current page", currentPage)
     if (isLoading) {
       return
     }
@@ -39,7 +40,7 @@ export default function CategoryPage({ categoryId, courses }: { categoryId: stri
             <ProductCard13 product={item} price={true} />
           </Grid>
         ))}
-        {/* {pages} */}
+        {pages}
         {isLoading && (
           <Grid item lg={2} md={3} sm={4} xs={6}>
             <ProductCard20 skeleton />

@@ -78,9 +78,9 @@ const TopBanner = ({ carouselData }: Props) => {
           totalSlides={carouselData.length}
           arrowButtonColor='secondary'
         >
-          {carouselData.map((item, ind) => (
+          {carouselData.map((item, index) => (
             <CarouselCard4
-              key={ind}
+              key={index}
               mode='light'
               title={item.title}
               bgImage={item.imgUrl}
