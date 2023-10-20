@@ -8,23 +8,35 @@ import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
 import { GetCourseResponse } from '@lib/model/course/get-course'
 
-export const CourseCheckout = ({course} : {course: GetCourseResponse}) => {
+export const CourseCheckout = ({ course }: { course: GetCourseResponse }) => {
   return (
-    <Card1 sx={{ boxShadow: '0px 0px 5px gray', position: "fixed" }}>
+    <Card1 sx={{ boxShadow: '0px 0px 5px gray', position: 'fixed' }}>
       <Stack spacing={1}>
         <Image
-          src='https://th.bing.com/th/id/OIP.D0yFfByllv1FGGCTh66vGAHaD4?pid=ImgDet&rs=1'
+          src={course.thumbnailUrl}
           sx={{
             objectFit: 'cover',
             objectPosition: 'center',
-            width: 386
+            width: 370
           }}
         />
-        <FlexBox alignItems={"baseline"}>
-          <H1>${course.price * course.discountPercent * 100}</H1>
-          <H2 sx={{ color: 'gray', marginLeft: 1, textDecorationLine: 'line-through' }}>${course.price}</H2>
+        <FlexBox alignItems={'center'}>
+          <H1 color='primary.main'>${course.price - (course.price * course.discountPercent) / 100}</H1>
+          {course.discountPercent !== 0 ? (
+            <H3 sx={{ color: 'gray', marginLeft: 1, textDecorationLine: 'line-through', fontWeight: 500 }}>
+              ${course.price}
+            </H3>
+          ) : (
+            <></>
+          )}
         </FlexBox>
-        <Typography sx={{ fontSize: '1.1rem'}}>Sale of {course.discountPercent}%</Typography>
+        {course.discountPercent !== 0 ? (
+          <Typography color={"gray"} sx={{ fontSize: '1.1rem', marginTop: '0px !important' }}>
+            {course.discountPercent}% sale off
+          </Typography>
+        ) : (
+          <></>
+        )}
         <LoadingButton
           color='primary'
           variant='contained'

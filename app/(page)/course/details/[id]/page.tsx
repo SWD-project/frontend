@@ -12,14 +12,16 @@ import Stack from '@mui/material/Stack'
 import Rating from '@components/common/theme/rating'
 import NewReleasesIcon from '@mui/icons-material/NewReleases'
 import { GetCourseResponse } from '@lib/model/course/get-course'
+import { formatDate } from '@lib/utils'
 export default async function Page({ params }: { params: { id: string } }) {
   const course = await getCourse({ courseId: params.id })
   const detail = course.data[0] as unknown as GetCourseResponse
+  console.log(detail)
   return (
     <Container>
       <Grid container spacing={3}>
         <Grid item xs={8}>
-          <Box marginTop={10}>
+          <Box marginTop={5}>
             <Stack spacing={2}>
               <Typography fontSize={'3rem'}>{detail.title}</Typography>
               <Typography>{detail.description}</Typography>
@@ -30,13 +32,13 @@ export default async function Page({ params }: { params: { id: string } }) {
               <Box>
                 Create By
                 <Span color='red' fontSize={'1rem'}>
-                  {detail.lectureId.firstName + detail.lectureId.lastName}
+                  {" " + detail.lectureId.firstName + detail.lectureId.lastName}
                 </Span>
               </Box>
               <FlexBox alignItems={'center'}>
                 <NewReleasesIcon />
                 Last Updated
-                <Typography marginLeft={'10px'}> {detail.updateAt}</Typography>
+                <Typography marginLeft={'10px'}> {formatDate(detail.updatedAt, "dd/MM/yyyy")}</Typography>
               </FlexBox>
             </Stack>
           </Box>

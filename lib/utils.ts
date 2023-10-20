@@ -1,16 +1,13 @@
-import { ReadonlyURLSearchParams } from 'next/navigation';
+import { format, parseISO } from 'date-fns'
+import { ReadonlyURLSearchParams } from 'next/navigation'
 
 export const createUrl = (pathname: string, params: URLSearchParams | ReadonlyURLSearchParams) => {
-  const paramsString = params.toString();
-  const queryString = `${paramsString.length ? '?' : ''}${paramsString}`;
+  const paramsString = params.toString()
+  const queryString = `${paramsString.length ? '?' : ''}${paramsString}`
 
-  return `${pathname}${queryString}`;
-};
-function renderProductCount(
-  page: number,
-  perPageProduct: number,
-  totalProduct: number
-) {
+  return `${pathname}${queryString}`
+}
+function renderProductCount(page: number, perPageProduct: number, totalProduct: number) {
   const startNumber = (page - 1) * perPageProduct
   let endNumber = page * perPageProduct
 
@@ -25,7 +22,6 @@ function calculateDiscount(price: number, discount: number) {
   return currency(afterDiscount)
 }
 
-
 function currency(price: number, fraction: number = 2) {
   // const { publicRuntimeConfig } = getConfig();
   const formatCurrency = new Intl.NumberFormat(undefined, {
@@ -33,10 +29,14 @@ function currency(price: number, fraction: number = 2) {
     // currency: publicRuntimeConfig.currency,
     currency: 'USD',
     maximumFractionDigits: fraction,
-    minimumFractionDigits: fraction,
+    minimumFractionDigits: fraction
   })
 
   return formatCurrency.format(price)
+}
+
+export const formatDate = (date: string, pattern: string) => {
+  return date ? format(parseISO(date), pattern) : ''
 }
 
 export { calculateDiscount, currency, renderProductCount }
