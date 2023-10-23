@@ -17,7 +17,6 @@ import { LevelTag } from '@components/common/theme/tag'
 export default async function Page({ params }: { params: { id: string } }) {
   const course = await getCourse({ courseId: params.id })
   const detail = course.data[0] as unknown as GetCourseResponse
-  console.log(detail)
   return (
     <Container>
       <Grid container spacing={3}>

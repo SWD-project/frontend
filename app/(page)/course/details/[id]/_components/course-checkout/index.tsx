@@ -7,8 +7,32 @@ import LoadingButton from '@mui/lab/LoadingButton'
 import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
 import { GetCourseResponse } from '@lib/model/course/get-course'
+import { useState } from 'react'
+import { useAddToCart } from 'hook/cart/use-add-to-cart'
+import { useSnackbar } from 'notistack'
+import { useRouter } from 'next/navigation'
 
 export const CourseCheckout = ({ course }: { course: GetCourseResponse }) => {
+  const [isLoading, setIsLoading] = useState(false)
+  const { enqueueSnackbar } = useSnackbar()
+  const router = useRouter()
+  const handleClick = async () => {
+    try {
+      setIsLoading(true)
+      const res = await useAddToCart({ courseId: course._id })
+
+      if (res.status === 'error') {
+        enqueueSnackbar(res.message, { variant: 'error' })
+      } else {
+        enqueueSnackbar('Adding success', { variant: res.status })
+      }
+    } catch (error) {
+      enqueueSnackbar('Adding fail, you must login first', { variant: 'error' })
+    } finally {
+      setIsLoading(false)
+      router.refresh()
+    }
+  }
   return (
     <Card1 sx={{ boxShadow: '0px 0px 5px gray', position: 'fixed' }}>
       <Stack spacing={1}>
@@ -31,7 +55,7 @@ export const CourseCheckout = ({ course }: { course: GetCourseResponse }) => {
           )}
         </FlexBox>
         {course.discountPercent !== 0 ? (
-          <Typography color={"gray"} sx={{ fontSize: '1.1rem', marginTop: '0px !important' }}>
+          <Typography color={'gray'} sx={{ fontSize: '1.1rem', marginTop: '0px !important' }}>
             {course.discountPercent}% sale off
           </Typography>
         ) : (
@@ -40,10 +64,12 @@ export const CourseCheckout = ({ course }: { course: GetCourseResponse }) => {
         <LoadingButton
           color='primary'
           variant='contained'
+          loading={isLoading}
           sx={{
             fontSize: '1rem',
             fontWeight: 700
           }}
+          onClick={handleClick}
         >
           Add to cart
         </LoadingButton>

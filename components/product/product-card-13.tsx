@@ -10,10 +10,10 @@ import { H3, Span } from '@components/common/theme/typography';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
-import { Course } from '@lib/model/course';
 import Skeleton from '@mui/material/Skeleton';
 import Rating from '@components/common/theme/rating';
 import { currency } from '@lib/utils';
+import { Course } from '@lib/model/course';
 
 
 const StyledCard = styled(Card)(({ theme }) => ({

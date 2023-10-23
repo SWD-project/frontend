@@ -2,6 +2,9 @@ import { H1, Span } from '@components/common/theme/typography'
 import Grid from '@mui/material/Grid'
 import { ItemList } from './_components/item-list'
 import { Checkout } from './_components/checkout'
+import { getCart } from '@lib/cart/get-cart'
+import { getAccessToken } from '@lib/handler/user-cookie'
+import { cookies } from 'next/headers'
 
 export const metadata = {
   description: 'High-performance ecommerce store built with Next.js, Vercel, and BigCommerce.',
@@ -51,6 +54,8 @@ const testData = [
 ]
 
 export default async function Cart() {
+  const accessToken = getAccessToken(cookies())
+  const cartData = await getCart(accessToken, {})
   return (
     <>
       <Grid container spacing={3}>
@@ -61,12 +66,12 @@ export default async function Cart() {
         </Grid>
         {/* CART PRODUCT LIST */}
         <Grid item md={8} xs={12}>
-          <ItemList itemList={testData}/>
+          <ItemList itemList={cartData.data[0]?.cartDetailList} />
         </Grid>
 
         {/* CHECKOUT FORM */}
         <Grid item md={4} xs={12}>
-          <Checkout/>
+          <Checkout />
         </Grid>
       </Grid>
     </>

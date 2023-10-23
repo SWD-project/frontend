@@ -2,10 +2,11 @@ import LazyImage from '@components/common/theme/lazy-image'
 import { H5 } from '@components/common/theme/typography'
 import { Course } from '@lib/model/course'
 import Box from '@mui/material/Box'
+import Link from 'next/link'
 
 export const ProductCard21 = ({ course }: { course: Course }) => {
   return (
-    <Box>
+    <Link href={`/course/details/${course._id}`}>
       <LazyImage
         alt={course.title || 'product'}
         src={course.thumbnailUrl}
@@ -22,6 +23,6 @@ export const ProductCard21 = ({ course }: { course: Course }) => {
       <H5 width={250} overflow={'hidden'} textOverflow={'ellipsis'} whiteSpace={'nowrap !important'}>
         {course.title}
       </H5>
-    </Box>
+    </Link>
   )
 }

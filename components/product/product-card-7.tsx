@@ -1,13 +1,13 @@
 'use client'
 import FlexBox from '@components/common/theme/flex-box/flex-box'
 import Image from '@components/common/theme/image'
+import Rating from '@components/common/theme/rating'
 import { LevelTag } from '@components/common/theme/tag'
 import { H1, H3, H4, Span } from '@components/common/theme/typography'
-import { GetCourseResponse } from '@lib/model/course/get-course'
+import { Course } from '@lib/model/course'
 import Check from '@mui/icons-material/Check'
 import Close from '@mui/icons-material/Close'
 import LoadingButton from '@mui/lab/LoadingButton'
-import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
 import Dialog from '@mui/material/Dialog'
@@ -16,7 +16,6 @@ import DialogContent from '@mui/material/DialogContent'
 import DialogContentText from '@mui/material/DialogContentText'
 import DialogTitle from '@mui/material/DialogTitle'
 import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
 import { styled } from '@mui/material/styles'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
@@ -28,7 +27,7 @@ const Wrapper = styled(Card)(({ theme }) => ({
   position: 'relative',
   borderRadius: '10px',
   marginBottom: '1.5rem',
-  boxShadow: theme.shadows[2],
+  boxShadow: theme.shadows[1],
   backgroundColor: theme.palette.background.paper,
 
   '@media only screen and (max-width: 425px)': {
@@ -39,7 +38,7 @@ const Wrapper = styled(Card)(({ theme }) => ({
 
 // =========================================================
 type ProductCardProps = {
-  item: GetCourseResponse
+  item: Course
   isChecked: boolean
   onCheck: any
   onDelete: any
@@ -61,13 +60,11 @@ const ProductCard7 = ({ item, isChecked, onCheck, onDelete }: ProductCardProps) 
             {item.title}
           </Span>
         </Link>
-        <Box>
-          Create by
-          <Span color='red' fontSize={'1rem'}>
-            {' ' + item.lectureId.firstName + item.lectureId.lastName}
-          </Span>
-        </Box>
-        <FlexBox alignItems={'center'} columnGap={1} marginTop={2}>
+        <FlexBox gap={1} alignItems='center' marginTop={2}>
+          <Rating value={item.rating} color='warn' readOnly />
+          <Span color='grey.600'>{`(${(item.discountPercent * 10 + 1) * item.title?.length})`}</Span>
+        </FlexBox>
+        <FlexBox alignItems={'center'} columnGap={1}>
           <LevelTag level={item.level} />
           <H4 color='primary.main'>${item.price - (item.price * item.discountPercent) / 100}</H4>
           {item.discountPercent !== 0 ? (
@@ -78,15 +75,11 @@ const ProductCard7 = ({ item, isChecked, onCheck, onDelete }: ProductCardProps) 
         </FlexBox>
       </FlexBox>
       <FlexBox p={2} flexDirection='column'>
-        <IconButton
-          sx={{ bgcolor: isChecked ? '#33d067' : '#F3F5F9' }}
-          size='small'
-          onClick={onCheck}
-        >
+        <IconButton sx={{ bgcolor: isChecked ? '#33d067' : '#F3F5F9' }} size='small' onClick={onCheck}>
           <Check sx={{ color: isChecked ? 'white' : '#707070' }} />
         </IconButton>
         <IconButton sx={{ bgcolor: '#F3F5F9' }} size='small' onClick={onDelete}>
-          <Close color='error'/>
+          <Close color='error' />
         </IconButton>
       </FlexBox>
       <Dialog

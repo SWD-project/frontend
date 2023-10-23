@@ -11,7 +11,6 @@ export default function CategoryPage({ categoryId, courses }: { categoryId: stri
   const [currentPage, setCurrentPage] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
   const handleEnterWaypoint = async () => {
-    console.log("current page", currentPage)
     if (isLoading) {
       return
     }
