@@ -84,31 +84,10 @@ const MiniCart = ({ toggleSidenav, expiredData }: MiniCartProps) => {
         {testData.map(course => (
           <Box sx={{ position: 'relative' }} m={2.5}>
             <ProductCard21 course={course} />
-            <IconButton
-              size='small'
-              sx={{ position: 'absolute', top: 0, right: 0, backgroundColor: 'rgba(0,0,0,0.2)' }}
-              onClick={() => {
-                setOpenRemoveDialog(course._id)
-              }}
-            >
-              <DeleteOutline color='primary' />
-            </IconButton>
           </Box>
         ))}
         {testData.length !== 0 && (
           <Box m={2.5}>
-            <Link href='/checkout' passHref>
-              <Button
-                fullWidth
-                color='primary'
-                variant='contained'
-                sx={{ mb: '0.75rem', height: '40px' }}
-                onClick={toggleSidenav}
-              >
-                Checkout Now
-              </Button>
-            </Link>
-
             <Link href='/cart' passHref>
               <Button fullWidth color='primary' variant='outlined' sx={{ height: 40 }} onClick={toggleSidenav}>
                 View Cart
@@ -117,27 +96,6 @@ const MiniCart = ({ toggleSidenav, expiredData }: MiniCartProps) => {
           </Box>
         )}
       </Box>
-      <Dialog
-        sx={{
-          zIndex: 9999
-        }}
-        open={Boolean(openRemoveDialog)}
-        aria-labelledby='alert-dialog-title'
-        aria-describedby='alert-dialog-description'
-      >
-        <DialogTitle id='alert-dialog-title'>Remove item</DialogTitle>
-        <DialogContent>
-          <DialogContentText id='alert-dialog-description'>
-            Do you want to remove this product from the shopping cart
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button>Disagree</Button>
-          <LoadingButton loading={isRemoveItem} color='error' sx={{ px: 4 }} autoFocus>
-            Agree
-          </LoadingButton>
-        </DialogActions>
-      </Dialog>
     </>
   )
 }

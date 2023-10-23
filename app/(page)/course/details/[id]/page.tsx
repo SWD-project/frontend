@@ -13,6 +13,7 @@ import Rating from '@components/common/theme/rating'
 import NewReleasesIcon from '@mui/icons-material/NewReleases'
 import { GetCourseResponse } from '@lib/model/course/get-course'
 import { formatDate } from '@lib/utils'
+import { LevelTag } from '@components/common/theme/tag'
 export default async function Page({ params }: { params: { id: string } }) {
   const course = await getCourse({ courseId: params.id })
   const detail = course.data[0] as unknown as GetCourseResponse
@@ -35,6 +36,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                   {" " + detail.lectureId.firstName + detail.lectureId.lastName}
                 </Span>
               </Box>
+              <LevelTag level={detail.level}/>
               <FlexBox alignItems={'center'}>
                 <NewReleasesIcon />
                 Last Updated

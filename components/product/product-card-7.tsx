@@ -1,10 +1,13 @@
 'use client'
 import FlexBox from '@components/common/theme/flex-box/flex-box'
 import Image from '@components/common/theme/image'
-import { Span } from '@components/common/theme/typography'
-import { Course } from '@lib/model/course'
+import { LevelTag } from '@components/common/theme/tag'
+import { H1, H3, H4, Span } from '@components/common/theme/typography'
+import { GetCourseResponse } from '@lib/model/course/get-course'
+import Check from '@mui/icons-material/Check'
 import Close from '@mui/icons-material/Close'
 import LoadingButton from '@mui/lab/LoadingButton'
+import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
 import Dialog from '@mui/material/Dialog'
@@ -13,6 +16,7 @@ import DialogContent from '@mui/material/DialogContent'
 import DialogContentText from '@mui/material/DialogContentText'
 import DialogTitle from '@mui/material/DialogTitle'
 import IconButton from '@mui/material/IconButton'
+import Typography from '@mui/material/Typography'
 import { styled } from '@mui/material/styles'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
@@ -21,7 +25,6 @@ import { useEffect, useState } from 'react'
 const Wrapper = styled(Card)(({ theme }) => ({
   display: 'flex',
   overflow: 'hidden',
-  alignItems: 'center',
   position: 'relative',
   borderRadius: '10px',
   marginBottom: '1.5rem',
@@ -36,45 +39,55 @@ const Wrapper = styled(Card)(({ theme }) => ({
 
 // =========================================================
 type ProductCardProps = {
-  item: Course
+  item: GetCourseResponse
+  isChecked: boolean
+  onCheck: any
+  onDelete: any
 }
 // =========================================================
 
-const ProductCard7 = ({ item }: ProductCardProps) => {
+const ProductCard7 = ({ item, isChecked, onCheck, onDelete }: ProductCardProps) => {
   const [openRemoveDialog, setOpenRemoveDialog] = useState(false)
   const handleClose = () => {
     setOpenRemoveDialog(false)
   }
   const [isRemoveItem, setIsRemoveItem] = useState(false)
-
-  const [isLoadingCart, setIsLoadingCart] = useState(false)
-  const [cartAmount, setCartAmount] = useState(0)
-
-  // handle change cart
-  const handleCartAmountChange = (amount: number) => async () => {
-    setCartAmount(cartAmount => cartAmount + amount)
-  }
-
   return (
     <Wrapper>
-      <Image alt={item.title} width={140} height={140} src={item.thumbnailUrl} />
-      <IconButton size='small' sx={{ position: 'absolute', right: 15, top: 15 }}>
-        <Close fontSize='small' />
-      </IconButton>
-
-      <FlexBox p={2} rowGap={2} width='100%' flexDirection='column'>
+      <Image alt={item.title} width={160} height={140} src={item.thumbnailUrl} />
+      <FlexBox p={2} width='100%' flexDirection='column'>
         <Link href={`/course/details/${item._id}`}>
           <Span ellipsis fontWeight='600' fontSize={18}>
             {item.title}
           </Span>
         </Link>
-
-        <FlexBox gap={1} flexWrap='wrap' alignItems='center'>
-          <Span fontWeight={600} color='primary.main'>
-            ${item.price - (item.price * item.discountPercent) / 100}
+        <Box>
+          Create by
+          <Span color='red' fontSize={'1rem'}>
+            {' ' + item.lectureId.firstName + item.lectureId.lastName}
           </Span>
+        </Box>
+        <FlexBox alignItems={'center'} columnGap={1} marginTop={2}>
+          <LevelTag level={item.level} />
+          <H4 color='primary.main'>${item.price - (item.price * item.discountPercent) / 100}</H4>
+          {item.discountPercent !== 0 ? (
+            <H4 sx={{ color: 'gray', textDecorationLine: 'line-through', fontWeight: 500 }}>${item.price}</H4>
+          ) : (
+            <></>
+          )}
         </FlexBox>
-        
+      </FlexBox>
+      <FlexBox p={2} flexDirection='column'>
+        <IconButton
+          sx={{ bgcolor: isChecked ? '#33d067' : '#F3F5F9' }}
+          size='small'
+          onClick={onCheck}
+        >
+          <Check sx={{ color: isChecked ? 'white' : '#707070' }} />
+        </IconButton>
+        <IconButton sx={{ bgcolor: '#F3F5F9' }} size='small' onClick={onDelete}>
+          <Close color='error'/>
+        </IconButton>
       </FlexBox>
       <Dialog
         sx={{
