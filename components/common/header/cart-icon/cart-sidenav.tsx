@@ -25,7 +25,7 @@ export const CartSideNav = ({ cartData }: { cartData?: GetCartResponse }) => {
   return (
     <>
       <Badge badgeContent={cartData?.cartDetailList.length || 0} color='primary'>
-        <Box p={1.25} bgcolor='#F3F5F9' component={IconButton} onClick={toggleSidenav}>
+        <Box p={1.25} bgcolor='#F3F5F9' component={IconButton} onClick={toggleSidenav} disabled={!cartData}>
           <ShoppingBagOutlined />
         </Box>
       </Badge>
