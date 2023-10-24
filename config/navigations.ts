@@ -1,8 +1,3 @@
-import DEFlag from '@components/common/theme/icons/flag/de'
-import JPFlag from '@components/common/theme/icons/flag/jp'
-import UKFlag from '@components/common/theme/icons/flag/uk'
-import USFlag from '@components/common/theme/icons/flag/us'
-
 const navigations = [
   {
     title: 'Cartoon and comic',

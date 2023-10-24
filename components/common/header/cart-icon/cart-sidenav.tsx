@@ -7,10 +7,8 @@ import Badge from '@mui/material/Badge'
 import Box from '@mui/material/Box'
 import Drawer from '@mui/material/Drawer'
 import IconButton from '@mui/material/IconButton'
-import { useTheme } from '@mui/material/styles'
 import { Fragment, useState } from 'react'
 export const CartSideNav = ({ cartData }: { cartData?: GetCartResponse }) => {
-  const theme = useTheme()
   const [sidenavOpen, setSidenavOpen] = useState(false)
   const toggleSidenav = () => setSidenavOpen(!sidenavOpen)
 

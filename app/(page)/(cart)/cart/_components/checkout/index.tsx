@@ -10,21 +10,32 @@ import { useEffect, useState } from 'react'
 import { createPaymentUrl } from '@lib/VNPAY'
 import { useSnackbar } from 'notistack'
 import Card1 from '@components/common/theme/card1'
+import { useCheckout } from 'hook/use-checkout'
+import { config } from '@lib/model'
 export const Checkout = () => {
   const searchParams = useSearchParams()
   const total = +(searchParams.get('total') as string)
-  const id = searchParams.get('id')
+  const id = searchParams.get('id') as string
   const [isChecked, setIsChecked] = useState(false)
   const router = useRouter()
 
   const { enqueueSnackbar } = useSnackbar()
 
+  const checkoutFunc = async() => {
+    const res = await useCheckout({
+      cartDetailId: id.split('-'),
+      payment: config.vnpay
+    })
+    if (res.status === 'success') {
+      router.push('/success')
+    }
+  }
   useEffect(() => {
     const amount = searchParams.get('vnp_Amount')
     const status = searchParams.get('vnp_TransactionStatus')
     if (amount !== null && status !== null) {
       if (status === '00') {
-        router.push('/success')
+        checkoutFunc()
       } else {
         enqueueSnackbar('Payment fail', { variant: 'error' })
       }
@@ -51,7 +62,7 @@ export const Checkout = () => {
         fullWidth
         disabled={!isChecked || total <= 0}
         onClick={() => {
-          localStorage.setItem("id", id || "")
+          localStorage.setItem('id', id || '')
           const url = createPaymentUrl(+total * 24500, `http://localhost:3000/cart`)
           router.push(url)
         }}

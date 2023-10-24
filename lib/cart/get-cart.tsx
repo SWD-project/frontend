@@ -11,7 +11,11 @@ export const getCart = async (accessToken: string, request: GetCartRequest): Pro
       },
       body: request
     }
-    const res = await fetcher(`${process.env.BACKEND}/cart/get-a-cart`, fetcherProps)
+    let res = await fetcher(`${process.env.BACKEND}/cart/get-a-cart`, fetcherProps)
+    if (res.data.length === 0 ) {
+      await fetcher(`${process.env.BACKEND}/cart/create`, fetcherProps)
+      res = await fetcher(`${process.env.BACKEND}/cart/get-a-cart`, fetcherProps)
+    }
     return res
   } catch (error: any) {
     console.log(error)

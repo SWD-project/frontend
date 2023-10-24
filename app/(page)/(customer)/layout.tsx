@@ -13,17 +13,23 @@ import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid'
 import { ReactNode } from 'react'
 import Navigations from './_components/navigations'
+import { getAccessToken } from '@lib/handler/user-cookie'
+import { cookies } from 'next/headers'
+import { getCustomer } from '@lib/customer/get-customer'
+import { config } from '@lib/model'
 
 // ======================================================
 type Props = { children: ReactNode }
 // ======================================================
 
-export default function ProfileLayout({ children }: Props) {
+export default async function ProfileLayout({ children }: Props) {
+  const accessToken = getAccessToken(cookies())
+  const user = await getCustomer(accessToken, {});
   return (
     <Container sx={{ my: '2rem' }}>
       <Grid container spacing={3}>
         <Grid item lg={3} xs={12} sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
-          <Navigations />
+          <Navigations isLecture={user.data[0]?.roleId === config.lecture}/>
           <SignOut />
         </Grid>
 

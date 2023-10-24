@@ -9,6 +9,5 @@ export const revalidate = 0
 export default async function CartIcon() {
   const accessToken = getAccessToken(cookies())
   const cartData = await getCart(accessToken, {})
-  console.log(cartData)
   return <CartSideNav cartData={cartData.data[0] as GetCartResponse} />
 }
