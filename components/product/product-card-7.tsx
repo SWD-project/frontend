@@ -42,14 +42,16 @@ type ProductCardProps = {
   isChecked: boolean
   onCheck: any
   onDelete: any
+  isEdit?: boolean
 }
 // =========================================================
 
-const ProductCard7 = ({ item, isChecked, onCheck, onDelete }: ProductCardProps) => {
+const ProductCard7 = ({ item, isChecked, onCheck, onDelete, isEdit = true }: ProductCardProps) => {
   const [openRemoveDialog, setOpenRemoveDialog] = useState(false)
   const handleClose = () => {
     setOpenRemoveDialog(false)
   }
+  console.log(item)
   const [isRemoveItem, setIsRemoveItem] = useState(false)
   return (
     <Wrapper>
@@ -64,17 +66,28 @@ const ProductCard7 = ({ item, isChecked, onCheck, onDelete }: ProductCardProps) 
           <Rating value={item.rating} color='warn' readOnly />
           <Span color='grey.600'>{`(${(item.discountPercent * 10 + 1) * item.title?.length})`}</Span>
         </FlexBox>
-        <FlexBox alignItems={'center'} columnGap={1}>
+        <FlexBox alignItems={'center'} columnGap={1} marginTop={1}>
           <LevelTag level={item.level} />
-          <H4 color='primary.main'>${item.price - (item.price * item.discountPercent) / 100}</H4>
+          <H4 sx={{ visibility: isEdit ? 'visible' : 'hidden' }} color='primary.main'>
+            ${item.price - (item.price * item.discountPercent) / 100}
+          </H4>
           {item.discountPercent !== 0 ? (
-            <H4 sx={{ color: 'gray', textDecorationLine: 'line-through', fontWeight: 500 }}>${item.price}</H4>
+            <H4
+              sx={{
+                display: isEdit ? null : 'none',
+                color: 'gray',
+                textDecorationLine: 'line-through',
+                fontWeight: 500
+              }}
+            >
+              ${item.price}
+            </H4>
           ) : (
             <></>
           )}
         </FlexBox>
       </FlexBox>
-      <FlexBox p={2} flexDirection='column'>
+      <FlexBox p={2} flexDirection='column' sx={{ display: isEdit ? null : 'none' }}>
         <IconButton sx={{ bgcolor: isChecked ? '#33d067' : '#F3F5F9' }} size='small' onClick={onCheck}>
           <Check sx={{ color: isChecked ? 'white' : '#707070' }} />
         </IconButton>

@@ -1,11 +1,11 @@
 import UserDashboardHeader from '@components/common/header/user-dashboard-header'
-import LocalLibraryOutlinedIcon from '@mui/icons-material/LocalLibraryOutlined'
+import ShoppingBagOutlined from '@mui/icons-material/ShoppingBagOutlined'
 import { ReactNode } from 'react'
 
 export default async function Layout({ children }: { children: ReactNode }) {
   return (
     <>
-      <UserDashboardHeader icon={LocalLibraryOutlinedIcon} title={'Enrolled Course'} />
+      <UserDashboardHeader icon={ShoppingBagOutlined} title={'Transaction'} />
     </>
   )
 }

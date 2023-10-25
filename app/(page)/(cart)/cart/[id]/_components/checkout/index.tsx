@@ -39,7 +39,6 @@ export const Checkout = () => {
         cartDetailId: id.split('-'),
         payment: config.vnpay
       })
-      console.log(res)
       if (res.status === 'success') {
         router.push('/success')
       }
@@ -90,9 +89,6 @@ export const Checkout = () => {
       <Backdrop
         sx={{ color: '#fff', zIndex: theme => theme.zIndex.drawer + 1 }}
         open={isLoading}
-        onClick={() => {
-          setIsLoading(false)
-        }}
       >
         <CircularProgress color='inherit' />
       </Backdrop>

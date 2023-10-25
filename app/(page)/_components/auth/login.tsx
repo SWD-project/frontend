@@ -18,6 +18,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import EyeToggleButton from './eye-toggle-button'
 import FlexBox from '@components/common/theme/flex-box/flex-box'
 import SocialButtons from './social-button'
+import { config } from '@lib/model'
 
 const fbStyle = { background: '#3B5998', color: 'white' }
 const googleStyle = { background: '#4285F4', color: 'white' }
@@ -57,8 +58,12 @@ const Login = ({ onClose }: LoginProps) => {
     try {
       setSubmitting(true)
       const res = await login(values.email, values.password)
-      if (res.error === undefined) {
-        router.refresh()
+      if (res.status === 'success') {
+        if (res.data[0]?.roleId === config.student) {
+          router.refresh()
+        } else {
+          router.push('/admin')
+        }
         onClose && onClose()
         enqueueSnackbar('Login success', { variant: 'success' })
       } else {

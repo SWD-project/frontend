@@ -1,7 +1,7 @@
-import { cookies } from 'next/headers'
+import { getCustomer } from '@lib/customer/get-customer'
 import { getAccessToken } from '@lib/handler/user-cookie'
-import { ItemList } from './_components/item-list'
-import { getEnrolledCourse } from '@lib/course/get-enrolled-course'
+import { cookies } from 'next/headers'
+import ProfileEditForm from '../(view)/_components/profile/profile-edit-form'
 
 export const metadata = {
   description: 'High-performance ecommerce store built with Next.js, Vercel, and BigCommerce.',
@@ -18,8 +18,8 @@ export const metadata = {
   }
 }
 
-export default async function Profile() {
+export default async function Information() {
   const accessToken = getAccessToken(cookies())
-  const res = await getEnrolledCourse(accessToken, {})
-  return <ItemList itemList={res.data} />
+  const user = await getCustomer(accessToken, {})
+  return <ProfileEditForm user={user.data[0]} />
 }

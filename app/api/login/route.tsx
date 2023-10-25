@@ -12,9 +12,9 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     } else {
       throw new Error('Account not found')
     }
-    return NextResponse.json({
+    return NextResponse.json(
       res
-    })
+    )
   } catch (error: any) {
     console.log(error)
     return NextResponse.json({ error })

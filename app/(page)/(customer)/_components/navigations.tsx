@@ -89,7 +89,7 @@ const LectureNavBar = [
   },
   {
     title: 'ACCOUNT SETTINGS',
-    list: [{ href: '/profile', title: 'Profile Info', icon: Person, count: 0 }]
+    list: [{ href: '/admin/profile', title: 'Profile Info', icon: Person, count: 0 }]
   }
 ]
 

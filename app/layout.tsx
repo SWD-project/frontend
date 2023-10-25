@@ -7,7 +7,6 @@ import { ReactNode } from 'react'
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const config = getConfig(cookies())
-  console.log(config)
   return (
     <html>
       <body>

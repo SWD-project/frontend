@@ -41,8 +41,6 @@ export const ItemList = ({ itemList = [] }: { itemList?: GetCartDetail[] }) => {
   const handleChange = () => {
     const url = new URLSearchParams()
     url.set('total', calculateTotal() + '')
-    console.log(selectedItem)
-    console.log(id)
     url.set('id', selectedItem.join('-'))
     router.push(`/cart/${url.toString()}`)
   }

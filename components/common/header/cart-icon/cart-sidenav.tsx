@@ -1,5 +1,4 @@
 'use client'
-import CartBag from '@components/common/theme/icons/cart-bag'
 import ShoppingBagOutlined from '@components/common/theme/icons/shopping-bag-outlined'
 import MiniCart from '@components/common/theme/mini-cart'
 import { GetCartResponse } from '@lib/model/cart/get-cart'
