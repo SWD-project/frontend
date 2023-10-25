@@ -3,14 +3,21 @@
 import ProductCard7 from '@components/product/product-card-7'
 import { GetCartDetail } from '@lib/model/cart/get-cart'
 import { useDeleteCart } from 'hook/cart/use-delete-cart'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import { useSnackbar } from 'notistack'
-import { useEffect, useState } from 'react'
+
+const getPage = (params: URLSearchParams) => {
+  return {
+    id: params.get('id') !== null ? (params.get('id') as string) : null
+  }
+}
 
 export const ItemList = ({ itemList = [] }: { itemList?: GetCartDetail[] }) => {
   const router = useRouter()
-  const searchParams = useSearchParams()
-  const [selectedItem, setSelectedItem] = useState<string[]>([])
+  const params = decodeURIComponent(useParams().id as string)
+  const { id } = getPage(new URLSearchParams(params))
+  
+  let selectedItem = id !== null ? id.split("-") : []
   const { enqueueSnackbar } = useSnackbar()
   const handleDeleteCart = async (cartDetailId: string) => {
     try {
@@ -19,7 +26,7 @@ export const ItemList = ({ itemList = [] }: { itemList?: GetCartDetail[] }) => {
     } catch (error: any) {
       enqueueSnackbar(error.message, { variant: 'error' })
     } finally {
-      router.push('/cart')
+      router.push('/cart/total=0')
     }
   }
   const calculateTotal = () => {
@@ -31,12 +38,14 @@ export const ItemList = ({ itemList = [] }: { itemList?: GetCartDetail[] }) => {
     })
     return total
   }
-  useEffect(() => {
-    const url = new URLSearchParams(searchParams.toString())
+  const handleChange = () => {
+    const url = new URLSearchParams()
     url.set('total', calculateTotal() + '')
-    url.set('id', selectedItem.join("-"))
-    router.push(`/cart?${url.toString()}`)
-  }, [selectedItem])
+    console.log(selectedItem)
+    console.log(id)
+    url.set('id', selectedItem.join('-'))
+    router.push(`/cart/${url.toString()}`)
+  }
   return (
     <>
       {itemList.map(item => (
@@ -46,10 +55,12 @@ export const ItemList = ({ itemList = [] }: { itemList?: GetCartDetail[] }) => {
           isChecked={selectedItem.findIndex(value => value === item._id) !== -1}
           onCheck={() => {
             if (selectedItem.findIndex(value => value === item._id) === -1) {
-              setSelectedItem([item._id, ...selectedItem])
+              selectedItem = ([item._id, ...selectedItem])
+              handleChange()
             } else {
               const newSelectedItem = selectedItem.filter(value => value !== item._id)
-              setSelectedItem(newSelectedItem)
+              selectedItem = (newSelectedItem)
+              handleChange()
             }
           }}
           onDelete={() => {

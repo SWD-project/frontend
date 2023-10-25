@@ -56,7 +56,7 @@ const MiniCart = ({ toggleSidenav, cartData }: MiniCartProps) => {
         ))}
         {cartData?.cartDetailList.length !== 0 && (
           <Box m={2.5}>
-            <Link href='/cart' passHref>
+            <Link href='/cart/total=0' passHref>
               <Button  fullWidth color='primary' variant='outlined' sx={{ height: 40, width: 250 }} onClick={toggleSidenav}>
                 View Cart
               </Button>
