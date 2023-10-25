@@ -6,6 +6,7 @@ export default async function Layout({ children }: { children: ReactNode }) {
   return (
     <>
       <UserDashboardHeader icon={ShoppingBagOutlined} title={'Transaction'} />
+      {children}
     </>
   )
 }

@@ -1,6 +1,8 @@
 import { cookies } from 'next/headers'
 import { getAccessToken } from '@lib/handler/user-cookie'
 import Card1 from '@components/common/theme/card1'
+import TransactionTable from './_components/transaction-table'
+import { getTransaction } from '@lib/transaction/get-transaction'
 
 export const metadata = {
   description: 'High-performance ecommerce store built with Next.js, Vercel, and BigCommerce.',
@@ -19,5 +21,7 @@ export const metadata = {
 
 export default async function Profile() {
   const accessToken = getAccessToken(cookies())
-  return <Card1>1</Card1>
+  const res = await getTransaction(accessToken, {})
+  console.log(res)
+  return <TransactionTable data={res.data}/>
 }
