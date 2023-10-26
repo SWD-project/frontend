@@ -13,7 +13,13 @@ import { useSnackbar } from 'notistack'
 import { useRouter } from 'next/navigation'
 import { config } from '@lib/model'
 
-export const CourseCheckout = ({ course }: { course: GetCourseResponse }) => {
+export const CourseCheckout = ({
+  course,
+  isAlreadyEnrolled
+}: {
+  course: GetCourseResponse
+  isAlreadyEnrolled: boolean
+}) => {
   const [isLoading, setIsLoading] = useState(false)
   const { enqueueSnackbar } = useSnackbar()
   const router = useRouter()
@@ -70,10 +76,10 @@ export const CourseCheckout = ({ course }: { course: GetCourseResponse }) => {
             fontSize: '1rem',
             fontWeight: 700
           }}
-          disabled={course.courseStatus === config.courseInactive}
+          disabled={course.courseStatus === config.courseInactive || isAlreadyEnrolled}
           onClick={handleClick}
         >
-          Add to cart
+          {isAlreadyEnrolled ? "You are already enrolled" : "Add to cart"}
         </LoadingButton>
       </Stack>
     </Card1>

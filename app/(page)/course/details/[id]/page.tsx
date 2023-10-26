@@ -14,9 +14,15 @@ import NewReleasesIcon from '@mui/icons-material/NewReleases'
 import { GetCourseResponse } from '@lib/model/course/get-course'
 import { formatDate } from '@lib/utils'
 import { LevelTag } from '@components/common/theme/tag'
+import { getAccessToken } from '@lib/handler/user-cookie'
+import { cookies } from 'next/headers'
+import { CheckEnrolledCourse } from '@lib/course/check-enrolled-course'
 export default async function Page({ params }: { params: { id: string } }) {
+  const accessToken = getAccessToken(cookies())
   const course = await getCourse({ courseId: params.id })
   const detail = course.data[0] as unknown as GetCourseResponse
+  const checkEnrolledCourse = await CheckEnrolledCourse(accessToken, {courseId: course.data[0]?._id})
+  console.log(checkEnrolledCourse.data.length)
   return (
     <Container>
       <Grid container spacing={3}>
@@ -45,7 +51,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           </Box>
         </Grid>
         <Grid item xs={4}>
-          <CourseCheckout course={detail}/>
+          <CourseCheckout isAlreadyEnrolled={checkEnrolledCourse.data.length > 0} course={detail}/>
         </Grid>
         <Card sx={{ marginBottom: 5, marginTop: 1, width: '100%', padding: '2rem' }}>
           <Grid container spacing={3}>
