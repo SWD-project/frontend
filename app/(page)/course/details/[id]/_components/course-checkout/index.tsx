@@ -11,6 +11,7 @@ import { useState } from 'react'
 import { useAddToCart } from 'hook/cart/use-add-to-cart'
 import { useSnackbar } from 'notistack'
 import { useRouter } from 'next/navigation'
+import { config } from '@lib/model'
 
 export const CourseCheckout = ({ course }: { course: GetCourseResponse }) => {
   const [isLoading, setIsLoading] = useState(false)
@@ -69,6 +70,7 @@ export const CourseCheckout = ({ course }: { course: GetCourseResponse }) => {
             fontSize: '1rem',
             fontWeight: 700
           }}
+          disabled={course.courseStatus === config.courseInactive}
           onClick={handleClick}
         >
           Add to cart

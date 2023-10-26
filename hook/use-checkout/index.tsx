@@ -1,6 +1,5 @@
 import { FetcherProps, fetcher } from '@lib/fetcher'
 import { ResponseBody } from '@lib/model'
-import { CreateCartDetailRequest, CreateCartDetailResponse } from '@lib/model/cartDetail/create-cart-detail'
 import { CheckoutRequest, CheckoutResponse } from '@lib/model/user/checkout'
 // @ts-ignore
 

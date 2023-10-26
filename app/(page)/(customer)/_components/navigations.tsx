@@ -84,7 +84,7 @@ const LectureNavBar = [
   {
     title: 'DASHBOARD',
     list: [
-      { href: '/course', title: 'Course', icon: ShoppingBagOutlined, count: 0 },
+      { href: '/admin/course/page=1&limit=10', title: 'Course', icon: LocalLibraryOutlinedIcon, count: 0 },
     ]
   },
   {

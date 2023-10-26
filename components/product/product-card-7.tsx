@@ -4,6 +4,7 @@ import Image from '@components/common/theme/image'
 import Rating from '@components/common/theme/rating'
 import { LevelTag } from '@components/common/theme/tag'
 import { H1, H3, H4, Span } from '@components/common/theme/typography'
+import { config } from '@lib/model'
 import { Course } from '@lib/model/course'
 import Check from '@mui/icons-material/Check'
 import Close from '@mui/icons-material/Close'
@@ -88,7 +89,12 @@ const ProductCard7 = ({ item, isChecked, onCheck, onDelete, isEdit = true }: Pro
         </FlexBox>
       </FlexBox>
       <FlexBox p={2} flexDirection='column' sx={{ display: isEdit ? null : 'none' }}>
-        <IconButton sx={{ bgcolor: isChecked ? '#33d067' : '#F3F5F9' }} size='small' onClick={onCheck}>
+        <IconButton
+          sx={{ bgcolor: isChecked ? '#33d067' : '#F3F5F9' }}
+          size='small'
+          onClick={onCheck}
+          disabled={item.courseStatus === config.courseInactive}
+        >
           <Check sx={{ color: isChecked ? 'white' : '#707070' }} />
         </IconButton>
         <IconButton sx={{ bgcolor: '#F3F5F9' }} size='small' onClick={onDelete}>

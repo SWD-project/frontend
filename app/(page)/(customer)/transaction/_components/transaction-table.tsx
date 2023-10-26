@@ -47,7 +47,7 @@ export default function TransactionTable({data} : {data: GetTransactionResponse[
       <Table sx={{ minWidth: 700 }} aria-label='customized table'>
         <TableHead>
           <TableRow>
-            <StyledTableCell>Title</StyledTableCell>
+            <StyledTableCell>Course Title</StyledTableCell>
             <StyledTableCell align='right'>Payment date</StyledTableCell>
             <StyledTableCell align='right'>Payment method</StyledTableCell>
             <StyledTableCell align='right'>Total ($)</StyledTableCell>
