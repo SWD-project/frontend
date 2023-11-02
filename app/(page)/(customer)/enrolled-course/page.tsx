@@ -21,5 +21,6 @@ export const metadata = {
 export default async function Profile() {
   const accessToken = getAccessToken(cookies())
   const res = await getEnrolledCourse(accessToken, {})
+  console.log(res)
   return <ItemList itemList={res.data} />
 }
