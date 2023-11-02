@@ -80,7 +80,7 @@ export default function SearchInputWithCategory() {
       setSuggestionList([])
       setLoadingSuggestSearch(true)
       const fixedKeyword = keyword
-      router.push(`/search/${fixedKeyword}`)
+      router.push(`/search/name=${fixedKeyword}`)
     }
   }
 

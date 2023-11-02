@@ -5,7 +5,6 @@ import { GetEnrolledCourseResponse } from '@lib/model/enrolledCourse/get-enrolle
 
 
 export const ItemList = ({ itemList = [] }: { itemList?: GetEnrolledCourseResponse[] }) => {
-  console.log("hello", itemList[0])
   return (
     <>
       {itemList.map(item => (

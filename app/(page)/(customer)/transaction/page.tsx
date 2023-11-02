@@ -22,6 +22,5 @@ export const metadata = {
 export default async function Profile() {
   const accessToken = getAccessToken(cookies())
   const res = await getTransaction(accessToken, {})
-  console.log(res)
   return <TransactionTable data={res.data}/>
 }

@@ -15,6 +15,5 @@ export default async function Course({ params }: { params: { filter: string } })
     filter[key as string] = value
   })
   const res = await getAdminCourse(accessToken, filter)
-  console.log(res)
   return <CourseTable data={res.data} />
 }

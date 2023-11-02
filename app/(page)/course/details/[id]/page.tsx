@@ -22,7 +22,6 @@ export default async function Page({ params }: { params: { id: string } }) {
   const course = await getCourse({ courseId: params.id })
   const detail = course.data[0] as unknown as GetCourseResponse
   const checkEnrolledCourse = await CheckEnrolledCourse(accessToken, {courseId: course.data[0]?._id})
-  console.log(checkEnrolledCourse.data.length)
   return (
     <Container>
       <Grid container spacing={3}>

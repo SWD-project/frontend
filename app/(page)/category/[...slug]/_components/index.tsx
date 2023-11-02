@@ -2,7 +2,7 @@
 import ProductCard13 from '@components/product/product-card-13'
 import ProductCard20 from '@components/product/product-card-20'
 import { Course } from '@lib/model/course'
-import { Grid } from '@mui/material'
+import Grid from '@mui/material/Grid'
 import { useState } from 'react'
 import { Waypoint } from 'react-waypoint'
 import CategoryPaging from './category-paging'
@@ -29,6 +29,7 @@ export default function CategoryPage({ categoryId, courses }: { categoryId: stri
 
   const pages = []
   for (let page = 2; page <= currentPage; page++) {
+    console.log(page)
     pages.push(<CategoryPaging key={`page_${page}`} page={page} categoryId={categoryId} onData={handleLoaded} />)
   }
   return (
