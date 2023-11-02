@@ -3,10 +3,10 @@ import ProductCard13 from '@components/product/product-card-13'
 import ProductCard20 from '@components/product/product-card-20'
 import { Course } from '@lib/model/course'
 import { SearchCourseRequest } from '@lib/model/course/search-course'
-import { Grid } from '@mui/material'
 import { useState } from 'react'
 import { Waypoint } from 'react-waypoint'
 import SearchPaging from './search-paging'
+import Grid from '@mui/material/Grid'
 
 export default function SearchPage({ request, courses }: { request: SearchCourseRequest; courses: Course[] }) {
   const [currentPage, setCurrentPage] = useState(1)

@@ -13,7 +13,7 @@ export default async function Page({ params }: { params: { param: string } }) {
   })
 
   const request = {
-    categories: filter.categories?.split('-') || [],
+    categories: filter.category?.split('-') || [],
     levels: filter.level?.split('-') || [],
     title: filter.name,
     limit: 8,

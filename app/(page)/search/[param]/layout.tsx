@@ -4,6 +4,7 @@ import { Filter } from './_components/filter'
 import Card1 from '@components/common/theme/card1'
 import { H4 } from '@components/common/theme/typography'
 import Container from '@mui/material/Container'
+import { getCategories } from '@lib/category/get-all-category'
 
 export default async function Layout({
   children,
@@ -23,6 +24,7 @@ export default async function Layout({
     //@ts-ignore
     filter[key] = value
   })
+  const categories = await getCategories({ id: '' })
   return (
     <Container>
       <Grid container spacing={3} marginTop={1}>
@@ -32,7 +34,7 @@ export default async function Layout({
           </Card1>
         </Grid>
         <Grid item xs={2.67}>
-          <Filter />
+          <Filter categories={categories.data} />
         </Grid>
         <Grid item xs={12 - 2.67}>
           {children}

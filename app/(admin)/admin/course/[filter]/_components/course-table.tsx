@@ -65,7 +65,18 @@ export default function CourseTable({ data }: { data: GetCourseByLectureResponse
         </TableHead>
         <TableBody>
           {data.map(row => (
-            <StyledTableRow key={row._id}>
+            <StyledTableRow
+              sx={{
+                cursor: 'hover',
+                ':hover': {
+                  backgroundColor: 'gray'
+                }
+              }}
+              key={row._id}
+              onClick={() => {
+                router.push(`/admin/course/update/${row._id}`)
+              }}
+            >
               <StyledTableCell component='th' scope='row'>
                 {row.title}
               </StyledTableCell>
@@ -77,7 +88,7 @@ export default function CourseTable({ data }: { data: GetCourseByLectureResponse
               <StyledTableCell align='right'>{row.totalMoney}</StyledTableCell>
               <StyledTableCell align='right'>
                 <LoadingButton
-                  sx={{ color: 'white', width: "85px" }}
+                  sx={{ color: 'white', width: '85px' }}
                   color={row.courseStatus === config.courseActive ? 'success' : 'error'}
                   variant='contained'
                   loading={loading === row._id}
@@ -85,7 +96,7 @@ export default function CourseTable({ data }: { data: GetCourseByLectureResponse
                     handleClick(row._id)
                   }}
                 >
-                  {row.courseStatus === config.courseActive ? "Active" : "Inactive"}
+                  {row.courseStatus === config.courseActive ? 'Active' : 'Inactive'}
                 </LoadingButton>
               </StyledTableCell>
             </StyledTableRow>

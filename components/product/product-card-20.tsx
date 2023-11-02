@@ -3,10 +3,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { H4, Paragraph, Small } from '@components/common/theme/typography'
-import { Box, IconButton, Rating, Skeleton, styled } from '@mui/material'
 import { Course } from '@lib/model/course'
 import { currency } from '@lib/utils'
 import FlexRowCenter from '@components/common/theme/flex-box/flex-grow-center'
+import { styled } from '@mui/material/styles'
+import Box from '@mui/material/Box'
+import IconButton from '@mui/material/IconButton'
+import Skeleton from '@mui/material/Skeleton'
+import Rating from '@mui/material/Rating'
 
 // custom styled components
 const Card = styled(Box)(({ theme }) => ({

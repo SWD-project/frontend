@@ -1,5 +1,5 @@
 import ProductCard20 from '@components/product/product-card-20'
-import { Grid } from '@mui/material'
+import Grid from '@mui/material/Grid'
 
 export default function Loading() {
   const data = ['1', '2', '3', '4', '5', '6']

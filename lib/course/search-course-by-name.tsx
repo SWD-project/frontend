@@ -8,6 +8,9 @@ export const searchCourseByName = async (request: SearchCourseRequest): Promise<
     if (request.levels[0] == '') {
       request.levels = []
     }
+    if (request.categories[0] == '') {
+      request.categories = []
+    }
     const fetcherProps: FetcherProps = {
       method: 'POST',
       body: request
