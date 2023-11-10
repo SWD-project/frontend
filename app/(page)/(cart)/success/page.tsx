@@ -41,11 +41,6 @@ export default async function CheckoutSuccess() {
           <H1 lineHeight={1.1} mt="1.5rem">
             Your order is completed!
           </H1>
-{/* 
-          <Paragraph color="grey.800" mt="0.3rem">
-            You will be receiving confirmation email with order details")}.
-          </Paragraph> */}
-
           <Link href="/" passHref>
             <Button
               color="primary"

@@ -17,11 +17,14 @@ import { LevelTag } from '@components/common/theme/tag'
 import { getAccessToken } from '@lib/handler/user-cookie'
 import { cookies } from 'next/headers'
 import { CheckEnrolledCourse } from '@lib/course/check-enrolled-course'
+import { getCartDetail } from '@lib/cart/get-cart-detail'
 export default async function Page({ params }: { params: { id: string } }) {
   const accessToken = getAccessToken(cookies())
   const course = await getCourse({ courseId: params.id })
   const detail = course.data[0] as unknown as GetCourseResponse
-  const checkEnrolledCourse = await CheckEnrolledCourse(accessToken, {courseId: course.data[0]?._id})
+  const checkEnrolledCourse = await CheckEnrolledCourse(accessToken, { courseId: course.data[0]?._id })
+  const checkAlreadyInCart = await getCartDetail(accessToken, { courseId: course.data[0]?._id })
+  console.log(checkAlreadyInCart)
   return (
     <Container>
       <Grid container spacing={3}>
@@ -31,26 +34,26 @@ export default async function Page({ params }: { params: { id: string } }) {
               <Typography fontSize={'3rem'}>{detail.title}</Typography>
               <Typography>{detail.description}</Typography>
               <FlexBox alignItems={'center'}>
-                <Rating name='half-rating-read' defaultValue={detail.rating} precision={0.5} readOnly marginRight={1}/>
+                <Rating name='half-rating-read' defaultValue={detail.rating} precision={0.5} readOnly marginRight={1} />
                 {`(${(detail.discountPercent * 10 + 1) * detail.title.length})`}
               </FlexBox>
               <Box>
                 Create By
                 <Span color='red' fontSize={'1rem'}>
-                  {" " + detail.lectureId.firstName + detail.lectureId.lastName}
+                  {' ' + detail.lectureId.firstName + detail.lectureId.lastName}
                 </Span>
               </Box>
-              <LevelTag level={detail.level}/>
+              <LevelTag level={detail.level} />
               <FlexBox alignItems={'center'}>
                 <NewReleasesIcon />
                 Last Updated
-                <Typography marginLeft={'10px'}> {formatDate(detail.updatedAt, "dd/MM/yyyy")}</Typography>
+                <Typography marginLeft={'10px'}> {formatDate(detail.updatedAt, 'dd/MM/yyyy')}</Typography>
               </FlexBox>
             </Stack>
           </Box>
         </Grid>
         <Grid item xs={4}>
-          <CourseCheckout isAlreadyEnrolled={checkEnrolledCourse.data.length > 0} course={detail}/>
+          <CourseCheckout isAlreadyEnrolled={checkEnrolledCourse.data.length > 0} course={detail} />
         </Grid>
         <Card sx={{ marginBottom: 5, marginTop: 1, width: '100%', padding: '2rem' }}>
           <Grid container spacing={3}>

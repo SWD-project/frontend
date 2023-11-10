@@ -143,7 +143,7 @@ const Login = ({ onClose }: LoginProps) => {
         >
           Login
         </LoadingButton>
-        <SocialButtons />
+        {/* <SocialButtons /> */}
         <FlexBox justifyContent='center' bgcolor='grey.200' borderRadius='4px' py={2.5} mt='1.25rem'>
           <Box>Dont have account?</Box>
           <Link href={`/sign-up?redirectTo=${pathName}`}>

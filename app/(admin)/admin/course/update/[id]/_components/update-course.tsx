@@ -18,14 +18,17 @@ import Select from '@mui/material/Select'
 import MenuItem from '@mui/material/MenuItem'
 import Button from '@mui/material/Button'
 import { InputOutcome } from './input-outcome'
+import { Course } from '@lib/model/course'
 import { Category } from '@lib/model/category'
-export default function CreateCourse({ categories }: { categories: Category[] }) {
+import { useUpdateCourse } from 'hook/update-course'
+
+export default function UpdateCourse({ course, categories }: { course: Course; categories: Category[] }) {
   const [submitting, setSubmitting] = useState(false)
   const { enqueueSnackbar } = useSnackbar()
   const router = useRouter()
-  const [level, setLevel] = useState(1)
-  const [outcome, setOutcome] = useState<string[]>([])
-  const [categoryId, setCategoryId] = useState('65201a2922caeb1c0334d6ae')
+  const [level, setLevel] = useState(course.level)
+  const [outcome, setOutcome] = useState<string[]>(course.outcome.split('-'))
+  const [categoryId, setCategoryId] = useState(course.categoryId)
   const handleUpdateOutcome = (index: number, value: string) => {
     const newOutcome = [...outcome]
     newOutcome[index] = value
@@ -36,12 +39,32 @@ export default function CreateCourse({ categories }: { categories: Category[] })
     newOutcome.splice(index, 1)
     setOutcome(newOutcome)
   }
+
+  const INITIAL_VALUES = {
+    description: course.description,
+    discountPercent: course.discountPercent,
+    price: course.price,
+    thumbnailUrl: course.thumbnailUrl,
+    title: course.title
+  }
+
   const handleFormSubmit = async (data: any) => {
     try {
       setSubmitting(true)
-      const res = await useCreateNewCourse({ ...data, outcome: outcome.join('-'), level, categoryId })
+      const res = await useUpdateCourse({
+        _id: course._id,
+        categoryId,
+        description: data.description,
+        discountPercent: data.discountPercent,
+        level,
+        outcome: outcome.join('-'),
+        price: data.price,
+        thumbnailUrl: data.thumbnailUrl,
+        title: data.title,
+        totalLesson: 0
+      })
       if (res.status === 'success') {
-        router.push('/admin/course/page=1&limit=10')
+        router.refresh();
         enqueueSnackbar(res.message, {
           variant: 'success'
         })
@@ -98,7 +121,11 @@ export default function CreateCourse({ categories }: { categories: Category[] })
                   helperText={(touched.thumbnailUrl && errors.thumbnailUrl) as string}
                 />
                 <Image
-                  src={values.thumbnailUrl}
+                  src={
+                    values.thumbnailUrl !== ''
+                      ? values.thumbnailUrl
+                      : 'https://th.bing.com/th/id/R.c5d8317c2153dfc0a9a1a5a69ebaca23?rik=n8CwdBIrUTtE3Q&riu=http%3a%2f%2fimages4.fanpop.com%2fimage%2fphotos%2f22100000%2fColored-pencils-pencils-22186617-1600-1200.jpg&ehk=BEzxssEvboPF4EhldWk2UhBdR%2blk1%2boc6UH8YUtkjew%3d&risl=&pid=ImgRaw&r=0'
+                  }
                   alt=''
                   width={250}
                   height={200}
@@ -255,7 +282,7 @@ export default function CreateCourse({ categories }: { categories: Category[] })
                   variant='contained'
                   type='submit'
                 >
-                  Create new course
+                  Update course
                 </LoadingButton>
               </FlexBetween>
             </Grid>
@@ -272,11 +299,3 @@ const checkoutSchema = yup.object().shape({
   discountPercent: yup.number().min(0, 'min 0').max(100, 'max 100').required('required'),
   thumbnailUrl: yup.string().required('required')
 })
-
-const INITIAL_VALUES = {
-  description: '',
-  discountPercent: 0,
-  price: 0,
-  thumbnailUrl: '',
-  title: ''
-}

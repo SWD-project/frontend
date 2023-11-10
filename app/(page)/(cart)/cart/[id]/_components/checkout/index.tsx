@@ -40,7 +40,8 @@ export const Checkout = () => {
         payment: config.vnpay
       })
       if (res.status === 'success') {
-        router.push('/success')
+        router.refresh()
+        router.replace('/success')
       }
     } catch (error) {
     } finally {

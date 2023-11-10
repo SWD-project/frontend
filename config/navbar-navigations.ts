@@ -1,11 +1,6 @@
 // MAIN NAVIGATION DATA
-const navbarNavigations = [
-  {
-    megaMenu: false,
-    megaMenuWithSub: false,
-    title: 'About us',
-    url: '/quotation'
-  }
+const navbarNavigations: any[] = [
+
 ]
 
 export default navbarNavigations

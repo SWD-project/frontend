@@ -67,9 +67,9 @@ export default function CourseTable({ data }: { data: GetCourseByLectureResponse
           {data.map(row => (
             <StyledTableRow
               sx={{
-                cursor: 'hover',
+                cursor: 'pointer',
                 ':hover': {
-                  backgroundColor: 'gray'
+                  backgroundColor: '#e2e2e2'
                 }
               }}
               key={row._id}
