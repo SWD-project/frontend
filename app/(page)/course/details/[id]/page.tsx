@@ -53,7 +53,11 @@ export default async function Page({ params }: { params: { id: string } }) {
           </Box>
         </Grid>
         <Grid item xs={4}>
-          <CourseCheckout isAlreadyEnrolled={checkEnrolledCourse.data.length > 0} course={detail} />
+          <CourseCheckout
+            isAlreadyInCart={checkAlreadyInCart.data.length > 0}
+            isAlreadyEnrolled={checkEnrolledCourse.data.length > 0}
+            course={detail}
+          />
         </Grid>
         <Card sx={{ marginBottom: 5, marginTop: 1, width: '100%', padding: '2rem' }}>
           <Grid container spacing={3}>

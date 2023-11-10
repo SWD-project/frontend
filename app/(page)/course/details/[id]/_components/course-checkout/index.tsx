@@ -15,29 +15,35 @@ import { config } from '@lib/model'
 
 export const CourseCheckout = ({
   course,
-  isAlreadyEnrolled
+  isAlreadyEnrolled,
+  isAlreadyInCart
 }: {
   course: GetCourseResponse
   isAlreadyEnrolled: boolean
+  isAlreadyInCart: boolean
 }) => {
   const [isLoading, setIsLoading] = useState(false)
   const { enqueueSnackbar } = useSnackbar()
   const router = useRouter()
   const handleClick = async () => {
-    try {
-      setIsLoading(true)
-      const res = await useAddToCart({ courseId: course._id })
-
-      if (res.status === 'error') {
-        enqueueSnackbar(res.message, { variant: 'error' })
-      } else {
-        enqueueSnackbar('Adding success', { variant: res.status })
+    if (isAlreadyInCart) {
+      router.push("/cart/total=0")
+    } else {
+      try {
+        setIsLoading(true)
+        const res = await useAddToCart({ courseId: course._id })
+  
+        if (res.status === 'error') {
+          enqueueSnackbar(res.message, { variant: 'error' })
+        } else {
+          enqueueSnackbar('Adding success', { variant: res.status })
+        }
+      } catch (error) {
+        enqueueSnackbar('Adding fail, you must login first', { variant: 'error' })
+      } finally {
+        setIsLoading(false)
+        router.refresh()
       }
-    } catch (error) {
-      enqueueSnackbar('Adding fail, you must login first', { variant: 'error' })
-    } finally {
-      setIsLoading(false)
-      router.refresh()
     }
   }
   return (
@@ -79,7 +85,7 @@ export const CourseCheckout = ({
           disabled={course.courseStatus === config.courseInactive || isAlreadyEnrolled}
           onClick={handleClick}
         >
-          {isAlreadyEnrolled ? "You are already enrolled" : "Add to cart"}
+          {isAlreadyEnrolled ? "You are already enrolled" : isAlreadyInCart ? "Go to cart" : "Add to cart"}
         </LoadingButton>
       </Stack>
     </Card1>
